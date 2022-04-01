@@ -15,14 +15,15 @@ use Illuminate\Support\Facades\Route;
 
 
 Auth::routes();
-/*Route::get('/', function () {
+Route::get('/', function () {
     return view('welcome');
-});*/
+});
 
 Route::get('/', 'Auth\LoginController@showLoginForm');
 
 //Route::get('/home', 'HomeController@index')->name('home');
-Route::middleware(['auth'])->group( function () {
+Route::middleware(['auth'])->group(function () {
+    
     Route::view('/home', 'home')->name('home');
     Route::view('/prueba', 'home')->name('prueba');
 });
