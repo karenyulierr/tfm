@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif !important;
+    background-color: #fff;
+}
+
+body {
+    font-family: "Poppins", sans-serif !important;
+    background-color: #fff;
+}
+.container {
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.bienvenido {
+    color: #01c0b5;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+.inicio {
+    line-height: 1.2;
+}
+.turi {
+    color: #00d6c9;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 50px;
+    /* line-height: 35px; */
+    /* letter-spacing: 0.01em; */
+    text-transform: uppercase;
+}
+.app {
+    color: #333333;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 50px;
+    /* line-height: 35px; */
+    /* letter-spacing: 0.01em; */
+    text-transform: uppercase;
+}
+
+.ingresa_tus_datos {
+    color: #000;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 20px;
+    /* line-height: 35px; */
+    /* letter-spacing: 0.01em; */
+}
+.color_btn {
+    background-color: #03b8ad !important;
+    color: #fff !important;
+    width: 250px;
+    text-align: center;
+}
+.color_gris {
+    color: #c9c9c9 !important;
+}
+.color_gris:hover {
+    text-decoration: none;
+}
+.card {
+    border: transparent !important;
+    top: 60px;
+}
+.img_login {
+    display: flex;
+    justify-content: center;
+}
+.volver img {
+    width: 30px;
+}
+
+/* // Medium devices (tablets, 768px and up) */
+@media (max-width: 768px) {
+    .container {
+        padding-top: 0px;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .inicio {
+        text-align: center !important;
+    }
+    .bienvenido {
+        font-size: 18px;
+        text-align: center !important;
+    }
+    .turi {
+        font-size: 30px;
+        font-weight: 600;
+    }
+    .app {
+        font-weight: 600;
+        font-size: 30px;
+    }
+    .ingresa_tus_datos {
+        font-weight: 600;
+        font-size: 18px;
+    }
+    .color_btn {
+        width: 100px;
+        text-align: center !important;
+    }
+    .card {
+        top: 0px;
+        bottom: 20px;
+    }
+}
+
+/* // Small devices (landscape phones, 576px and up) */
+@media (max-width: 576px) {
+    .img_login {
+        display: none;
+    }
+}

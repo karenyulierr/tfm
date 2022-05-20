@@ -13,6 +13,10 @@ class TouristSite extends Model
         'nit',
         'email',
         'phone',
+        'main_image',
+        'address',
+        'latitude',
+        'longitude',
         'state',
         'user_id'
     ];

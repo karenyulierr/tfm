@@ -1,5 +1,5 @@
 {
-    "/js/app.js": "/js/app.js?id=42f28fe753bc8e0a02fb",
-    "/css/app.css": "/css/app.css?id=7a25a18f8d6861c711ca",
-    "/js/panel.js": "/js/panel.js?id=2179f20d86f8bbe420dd"
+    "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css",
+    "/js/panel.js": "/js/panel.js"
 }
