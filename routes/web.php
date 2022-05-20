@@ -18,6 +18,17 @@ Auth::routes();
 Route::get('/', function () {
     return view('welcome');
 });
+/** Inicio */
+Route::get('/contact', function () {
+    return view('contact');
+});
+Route::get('/meet_rivera', function () {
+    return view('meet_rivera');
+});
+Route::get('/tourist_plans', function () {
+    return view('tourist_plans');
+});
+/**Fin inicio */
 
 //Route::get('/', 'Auth\LoginController@showLoginForm');
 
@@ -45,15 +56,5 @@ Route::middleware(['auth'])->group(function () {
     //Servicios
     Route::view('/service', 'home')->name('service');
     Route::resource('/service-resource','ServiceController');
-    /** Inicio */
-    Route::get('/contact', function () {
-        return view('contact');
-    });
-    Route::get('/meet_rivera', function () {
-        return view('meet_rivera');
-    });
-    Route::get('/tourist_plans', function () {
-        return view('tourist_plans');
-    });
-    /**Fin inicio */
+
 });
