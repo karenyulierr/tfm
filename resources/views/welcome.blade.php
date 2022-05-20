@@ -37,7 +37,6 @@
                         @if (Route::has('login'))
 
                         @auth
-                        <a class="nav-link" href="{{ url('#') }}">Inicio</a>
                     </li>
                     @else
                     <li class="nav-item dropdown">
