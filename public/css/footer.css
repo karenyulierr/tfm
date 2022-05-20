@@ -1,0 +1,50 @@
+footer {
+    bottom: 0;
+    background: #f7f7f7;
+    height: auto;
+    width: 100%;
+    position: absolute;
+}
+
+.row_item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: stretch;
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: stretch;
+    margin: 0 !important;
+}
+.Servicios {
+    color: #03b8ad;
+}
+.Siguenos {
+    color: #03b8ad;
+}
+.logo_siguenos img {
+    width: 20px;
+    height: 20px;
+}
+.link a {
+    text-decoration: none;
+    color: #1e1e1e;
+}
+
+@media (max-width: 576px) {
+    footer {
+        height: 200px;
+        font-size: 12px;
+    }
+    .row {
+        flex-direction: column-reverse;
+    }
+
+    .logo_siguenos img {
+        width: 15px;
+        height: 15px;
+    }
+}
