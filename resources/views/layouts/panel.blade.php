@@ -157,7 +157,7 @@
                             <li class="nav-item">
                                 <a href="/category" >
                                     <i class="fas fa-layer-group clr-font"></i>
-                                    <p class="clr-font">Categorias</p>
+                                    <span class="clr-font">Categorias</span>
                                 </a>
                             </li>
                         @endcan
@@ -165,7 +165,7 @@
                             <li class="nav-item">
                                 <a href="/service" >
                                     <i class="fas fa-list clr-font" ></i>
-                                    <p class="clr-font">Servicios</p>
+                                    <span class="clr-font">Servicios</span>
                                 </a>
                             </li>
                         @endcan
@@ -173,7 +173,7 @@
                             <li class="nav-item">
                                 <a href="/sites" >
                                     <i class="fa  fa-map-pin clr-font"></i>
-                                    <p class="clr-font">Sitios turísticos</p>
+                                    <span class="clr-font">Sitios turísticos</span>
                                 </a>
                             </li>
                         @endcan
