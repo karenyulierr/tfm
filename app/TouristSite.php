@@ -18,6 +18,9 @@ class TouristSite extends Model
         'latitude',
         'longitude',
         'state',
+        'user_admin',
+        'start_time',
+        'end_time',
         'user_id'
     ];
 }

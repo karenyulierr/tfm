@@ -7,6 +7,7 @@
     <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
     <!-- Fonts and icons -->
     <script src="{{ asset('js/plugin/webfont/webfont.min.js') }}"></script>
+    <link rel="shortcut icon" href="{{ asset('img/logo.png') }}">
     <script>
         WebFont.load({
             google: {"families":["Lato:300,400,700,900"]},
@@ -22,11 +23,14 @@
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/atlantis.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/demo.css') }}">
+    <link rel="stylesheet" href="{{ asset('leaflet/leaflet.css') }}">
 
     <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/vue-multiselect@2.1.0/dist/vue-multiselect.min.css">
+    <link href="{{asset('vendors/bootstrap-fileinput/css/fileinput.min.css')}}" media="all" rel="stylesheet" type="text/css" />
     <style>
         .turi {
             color: #00d6c9;
@@ -63,7 +67,7 @@
         <div class="logo-header" style="background: linear-gradient(180deg, #2B2A2A 0%, rgba(32, 32, 32, 0.760417) 100%);">
 
             <a href="/home" class="logo">
-                <span class="turi">turi</span><span class="app">app</span>
+                <img src="{{ asset('img/logo_welcome.png') }}" >
             </a>
             <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon">
@@ -171,7 +175,7 @@
                         @endcan
                         @can('Ver sitios turísticos')
                             <li class="nav-item">
-                                <a href="/sites" >
+                                <a href="/home" >
                                     <i class="fa  fa-map-pin clr-font"></i>
                                     <span class="clr-font">Sitios turísticos</span>
                                 </a>
@@ -209,6 +213,7 @@
 <script src="{{ asset('js/plugin/jquery-scrollbar/jquery.scrollbar.min.js') }}"></script>
 <!-- Datatables -->
 <script src="{{ asset('js/plugin/datatables/datatables.min.js') }}"></script>
+<script src="{{ asset('leaflet/leaflet.js') }}"></script>
 
 <script src="{{ asset('vendors/bootstrap-fileinput/js/plugins/piexif.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('vendors/bootstrap-fileinput/js/plugins/sortable.min.js') }}" type="text/javascript"></script>

@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'TURIAPP'),
 
     /*
     |--------------------------------------------------------------------------
@@ -229,5 +229,5 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
     ],
-
+    'img_main' => getcwd().env('PATH_PHOTO_MAIN'),
 ];

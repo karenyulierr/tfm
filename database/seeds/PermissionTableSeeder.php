@@ -14,7 +14,6 @@ class PermissionTableSeeder extends Seeder
     public function run()
     {
         $Admin = Role::updateOrCreate(['name' => 'Administrador' ]);
-        $Tourist = Role::updateOrCreate(['name' => 'Usuario/Turista' ]);
         $Site = Role::updateOrCreate(['name' => 'Cliente/Sitio turístico' ]);
         Permission::updateOrCreate([
             'name' => 'Gestión roles'
@@ -40,7 +39,15 @@ class PermissionTableSeeder extends Seeder
         Permission::updateOrCreate([
             'name' => 'Ver sitios turísticos'
         ]);
-
+        Permission::updateOrCreate([
+            'name' => 'Crear sitios turísticos'
+        ]);
+        Permission::updateOrCreate([
+            'name' => 'Editar sitios turísticos'
+        ]);
+        Permission::updateOrCreate([
+            'name' => 'Crear reglas'
+        ]);
         $Admin->givePermissionTo(Permission::all());
     }
 }
