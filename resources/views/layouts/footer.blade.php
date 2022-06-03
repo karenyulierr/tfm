@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="css/footer.css">
 
 <footer>
-    <div class="row">
+    <div class="row row_principal">
         <div class="col-md-5 mt-5 mb-5 ">
             {{-- <a href="/" class="">
                 <span class="turi_footer">turi</span><span class="app_footer">app</span>
@@ -15,8 +15,8 @@
         </div>
         <div class="col-md-5 mt-5 mb-5">
             <div class="row_item">
-                <div class="col">
-                    <p class="Servicios"> Servicios</p>
+                <div class="col ">
+                    <p class="Servicios mb-1"> Servicios</p>
                     <div class="link">
                         <a href="#">Hoteles</a>
                     </div>
@@ -33,8 +33,8 @@
                         <a href="#">Cafes</a>
                     </div>
                 </div>
-                <div class="col">
-                    <p class="Siguenos"> Siguenos</p>
+                <div class="col ">
+                    <p class="Siguenos mt-2 mb-2"> Siguenos</p>
                     <div class="row">
                         <div class="col-1 logo_siguenos">
                             <img src="img/facebook.svg" alt="CoolBrand">
@@ -61,7 +61,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </footer>

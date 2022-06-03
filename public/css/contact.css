@@ -1,3 +1,398 @@
-.contacto{
-    margin-top: 100px;
+.contacto {
+    margin-top: 160px;
+    margin-left: 50px;
+    max-width: 100%;
+    margin-bottom: 50px;
+}
+
+.dudas {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 27px;
+    letter-spacing: 0.175em;
+    text-transform: uppercase;
+    color: #01c0b5;
+}
+.en_contact {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 63px;
+    color: #1e1e1e;
+}
+p {
+    margin: 0 !important;
+}
+.btn_contact {
+    background-color: #03b8ad !important;
+    color: #fff !important;
+    width: 200px;
+    text-align: center;
+}
+.imagenes {
+    display: flex;
+    flex-direction: column;
+}
+.imagen_uno {
+    border-radius: 16px;
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    -ms-border-radius: 16px;
+    -o-border-radius: 16px;
+}
+.imagen_uno img {
+    width: 100%;
+    height: 100%;
+    max-width: 200px;
+    -webkit-box-shadow: -19px 27px 5px 0px rgba(242, 243, 244, 1);
+    -moz-box-shadow: -19px 27px 5px 0px rgba(242, 243, 244, 1);
+    box-shadow: -19px 27px 5px 0px rgba(242, 243, 244, 1);
+    margin-left: 130px;
+}
+.imagen_dos {
+    border-radius: 16px;
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    -ms-border-radius: 16px;
+    -o-border-radius: 16px;
+}
+.imagen_dos img {
+    width: 100%;
+    max-width: 500px;
+    -webkit-box-shadow: 25px -30px 5px 0px rgba(85, 85, 85, 0.14);
+    -moz-box-shadow: 25px -30px 5px 0px rgba(85, 85, 85, 0.14);
+    box-shadow: 25px -30px 5px 0px rgba(85, 85, 85, 0.14);
+    margin-top: -200px;
+    margin-right: -30px;
+}
+.row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+.imagen_tres {
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    padding: 0 !important;
+}
+
+.imagen_tres img {
+    width: 100%;
+    max-width: 200px;
+    margin-left: 70px;
+    margin-top: -90px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+
+@media (max-width: 1828px) {
+    .imagen_uno img {
+        max-width: 200px;
+        margin-left: 50px;
+    }
+    .imagen_dos img {
+        max-width: 500px;
+        margin-top: -200px;
+        margin-right: -30px;
+    }
+    .imagen_tres img {
+        max-width: 200px;
+        margin-left: 70px;
+        margin-top: -40px;
+    }
+}
+
+@media (max-width: 1584px) {
+    .imagen_uno img {
+        margin-left: 30px;
+    }
+    .imagen_dos img {
+        max-width: 450px;
+    }
+    .imagen_tres img {
+        margin-left: 50px;
+    }
+}
+@media (max-width: 1440px) {
+    .imagen_uno img {
+        max-width: 180px;
+        margin-left: 0;
+    }
+
+    .imagen_dos img {
+        max-width: 420px;
+        margin-top: -150px;
+        margin-right: -30px;
+    }
+    .imagen_tres img {
+        width: 100%;
+        max-width: 180px;
+        margin-left: 40px;
+        margin-top: -60px;
+    }
+}
+
+@media (max-width: 1328px) {
+    .imagen_uno img {
+        max-width: 160px;
+    }
+
+    .imagen_dos img {
+        max-width: 400px;
+    }
+    .imagen_tres img {
+        max-width: 160px;
+        margin-left: 30px;
+        margin-top: -30px;
+    }
+}
+
+@media (max-width: 1146px) {
+    .contacto {
+        margin-top: 110px;
+        margin-left: 30px;
+    }
+
+    .dudas {
+        font-size: 16px;
+    }
+    .en_contact {
+        font-size: 35px;
+    }
+    .btn_contact {
+        width: 180px;
+    }
+    .imagen_uno img {
+        max-width: 140px;
+    }
+
+    .imagen_dos img {
+        max-width: 380px;
+    }
+    .imagen_tres img {
+        max-width: 140px;
+        margin-left: 20px;
+        margin-top: -10px;
+    }
+}
+@media (max-width: 1050px) {
+    .btn_contact {
+        width: 160px;
+    }
+    .imagen_uno img {
+        width: 140px;
+        max-width: 140px;
+        margin-left: 0px;
+    }
+    .imagen_dos img {
+        max-width: 380px;
+        margin-top: -100px;
+        margin-right: -30px;
+    }
+    .imagen_tres img {
+        max-width: 140px;
+        margin-left: 20px;
+        margin-top: 0px;
+    }
+}
+@media (max-width: 828px) {
+    .contacto {
+        margin-top: 100px;
+        margin-left: 20px;
+    }
+
+    .dudas {
+        font-size: 15px;
+    }
+    .en_contact {
+        font-size: 30px;
+    }
+    .btn_contact {
+        width: 140px;
+    }
+    .imagen_uno img {
+        width: 140px;
+        max-width: 140px;
+        margin-left: -50px;
+    }
+
+    .imagen_dos img {
+        width: 230px;
+        max-width: 380px;
+    }
+    .imagen_tres img {
+        width: 140px;
+        max-width: 140px;
+        margin-left: 20px;
+        margin-top: 20px;
+    }
+}
+@media (max-width: 730px) {
+    .dudas {
+        font-size: 18px;
+    }
+    .en_contact {
+        font-size: 42px;
+    }
+    .contenido_contact {
+        display: flex;
+        flex-direction: column;
+    }
+    .formulario {
+        width: 100% !important;
+        max-width: 100%;
+    }
+    .imagenes {
+        width: 100% !important;
+        max-width: 100%;
+        margin-top: 30px;
+    }
+    .imagen_uno img {
+        width: 100%;
+        max-width: 160px;
+        margin-left: 50px;
+    }
+    .imagen_dos img {
+        width: 100%;
+        max-width: 330px;
+        margin-top: -150px;
+        margin-right: -30px;
+    }
+
+    .imagen_tres img {
+        width: 100%;
+        max-width: 160px;
+        margin-left: 100px;
+        margin-top: 20px;
+    }
+}
+@media (max-width: 544px) {
+    .dudas {
+        font-size: 16px;
+    }
+    .en_contact {
+        font-size: 35px;
+    }
+    .btn_contact {
+        width: 100px;
+    }
+    .imagen_uno img {
+        width: 100px !important;
+        max-width: 100px !important;
+        margin-left: 50px;
+    }
+    .imagen_dos img {
+        width: 250px !important;
+        max-width: 250px !important;
+        margin-top: -150px;
+        margin-right: -30px;
+    }
+
+    .imagen_tres img {
+        width: 100px !important;
+        max-width: 100px !important;
+        margin-left: 100px;
+        margin-top: 20px;
+    }
+}
+@media (max-width: 498px) {
+    .imagen_uno img {
+        width: 120px;
+        max-width: 120px;
+        margin-left: 30px;
+    }
+    .imagen_dos img {
+        width: 280px;
+        max-width: 280px;
+        margin-top: -120px;
+        margin-right: -30px;
+    }
+
+    .imagen_tres img {
+        width: 120px;
+        max-width: 120px;
+        margin-left: 90px;
+        margin-top: 20px;
+    }
+}
+@media (max-width: 434px) {
+    .imagen_uno img {
+        width: 100px;
+        max-width: 100px;
+        margin-left: 20px;
+    }
+    .imagen_dos img {
+        width: 200px !important;
+        max-width: 200px !important;
+        margin-top: -100px;
+        margin-right: -30px;
+    }
+
+    .imagen_tres img {
+        width: 100px;
+        max-width: 100px;
+        margin-left: 70px;
+        margin-top: 30px;
+    }
+}
+@media (max-width: 374px) {
+    .dudas {
+        font-size: 15px;
+    }
+    .en_contact {
+        font-size: 30px;
+    }
+    .btn_contact {
+        width: 90px;
+    }
+
+    .imagen_uno img {
+        width: 100px;
+        max-width: 100px;
+        margin-left: 0px;
+    }
+    .imagen_dos img {
+        width: 150px !important;
+        max-width: 150px !important;
+        margin-top: -100px;
+        margin-right: -30px;
+    }
+
+    .imagen_tres img {
+        width: 100px;
+        max-width: 100px;
+        margin-left: 50px;
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 312px) {
+    .imagen_uno img {
+        width: 60px !important;
+        max-width: 60px !important;
+    }
+    .imagen_dos img {
+        width: 120px !important;
+        max-width: 120px !important;
+        margin-top: -100px;
+        margin-right: -30px;
+    }
+
+    .imagen_tres img {
+        width: 60px !important;
+        max-width: 60px !important;
+        margin-left: 50px;
+        margin-top: 30px;
+    }
+    .imagenes {
+        margin-top: 70px;
+    }
 }
