@@ -8,7 +8,7 @@
                             <div class="card-title" v-if="showCreate">
                                 <template>
                                     <div class="pull-right" v-if="$can('Crear sitios turísticos')">
-                                        <button class="btn" style="background: #555555; color: white" @click="createFile(),band='create'">Agregar sitio <i class="fa fa-plus"></i></button>
+                                        <button class="btn" style="background: #555555; color: white" @click="createFile(),band='create',see=false">Agregar sitio <i class="fa fa-plus"></i></button>
                                     </div>
                                     <h2 class="clr-font"><b>Sitios turísticos</b></h2>
                                 </template>
@@ -31,7 +31,7 @@
                                         </button>
                                         <div>
                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                                <a class="dropdown-item" href="#" v-on:click="getTouristSiteId(props.cell_value),band='update', see=true, showCreate=false, site=false"><i class="fas fa-eye"></i> Detalle </a>
+                                                <a class="dropdown-item" href="#" v-on:click="getTouristSiteId(props.cell_value),band='update', see=true, showCreate=false, site=true"><i class="fas fa-eye"></i> Detalle </a>
                                                 <a class="dropdown-item" href="#" v-on:click="getTouristSiteId(props.cell_value),band='update', see=false"><i class="fas fa-edit"></i> Editar </a>
                                                 <a class="dropdown-item" v-on:click="rules(props.cell_value, props.row.name),see=false"><i class="fas fa-list-ol"></i> Reglas</a>
                                                 <a class="dropdown-item" href="#" v-on:click="services(props.cell_value, props.row.name),see=false"><i class="fas fa-clipboard-list"></i> Servicios</a>
@@ -285,6 +285,7 @@ export default {
                         this.getTouristSite();
                         this.messageAlert('success', 'Correcto!', 'Sitio turístico guardado exitosamente!');
                         this.loadCreate = true;
+                        this.site = false;
                         this.showCreate = true;
                         this.clear();
                     }).catch(e => {

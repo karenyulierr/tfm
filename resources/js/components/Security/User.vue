@@ -258,16 +258,15 @@
             return {
                 config: {
                     show_refresh_button: false,
-                    loaderText: 'actualizando...', // by default 'Loading...'
                     show_reset_button: false,
-                    highlight_row_hover_color:"#00000049 !important",
+                    per_page: 10,
                     card_mode: false,
-                    per_page: 5,
-                    selected_rows_info: true,
                     global_search: {
-                        placeholder: "Buscar...",
+                        placeholder: "Búsqueda",
                         visibility: true,
-                        case_sensitive: false
+                        case_sensitive: false,
+                        showClearButton: false,
+                        searchOnPressEnter: false,
                     },
                 },
                 classes: {
