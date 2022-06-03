@@ -1,3 +1,388 @@
-.conta{
-    margin-top: 100px;
+.conta {
+    margin-top: 84px;
+    width: 100%;
+    height: 656px;
+    background: url("../img/conocearivera1.png") no-repeat 50%;
+    background-size: cover;
+    background-position: top;
+    color: #fff;
+    backdrop-filter: blur(10px);
+}
+.conoce_principal {
+    margin-bottom: 100px;
+}
+.conoce {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 60px;
+    line-height: 90px;
+    text-transform: capitalize;
+    color: #003532;
+}
+.rivera {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 60px;
+    line-height: 90px;
+    text-transform: capitalize;
+
+    color: #03b8ad;
+}
+.text_conoce {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 185%;
+    color: #fff;
+    margin-left: 150px;
+    padding: 0 !important;
+    width: 40%;
+}
+.title_conoce {
+    margin-top: 20px;
+    margin-left: 150px;
+}
+.row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+.imagen-conoce {
+    padding-left: 0 !important;
+}
+.imagen-conoce img {
+    width: 800px;
+    max-width: 800px;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+    z-index: 100;
+    margin-top: -60px;
+    -webkit-box-shadow: 12px 67px 38px -42px rgba(0, 0, 0, 0.84);
+    -moz-box-shadow: 12px 67px 38px -42px rgba(0, 0, 0, 0.84);
+    box-shadow: 12px 67px 38px -42px rgba(0, 0, 0, 0.84);
+}
+.div_1 {
+    height: 100px;
+    width: 600px;
+    background-color: rgba(85, 85, 85, 1);
+    margin-left: -100px;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+}
+.div_2 {
+    height: 200px;
+    width: 600px;
+    background-color: rgba(176, 176, 176, 1);
+    margin-top: -250px;
+    margin-left: 240px;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+}
+.con {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 50px;
+    letter-spacing: -0.06em;
+    text-transform: capitalize;
+    color: #363636;
+}
+
+.text_con_turi {
+    width: 80%;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 185%;
+    color: #313131;
+    opacity: 0.8;
+}
+@media (max-width: 1700px) {
+    .imagen-conoce img {
+        width: 700px;
+        max-width: 700px;
+    }
+    .div_1 {
+        height: 100px;
+        width: 600px;
+        margin-left: -110px;
+    }
+    .div_2 {
+        margin-top: -240px;
+        margin-left: 150px;
+    }
+}
+@media (max-width: 1510px) {
+    .imagen-conoce img {
+        width: 600px;
+        max-width: 600px;
+    }
+    .div_1 {
+        width: 600px;
+        margin-left: -110px;
+    }
+    .div_2 {
+        margin-top: -225px;
+        margin-left: 40px;
+    }
+    .conoce_principal {
+        margin-bottom: 30px;
+    }
+}
+@media (max-width: 1300px) {
+    .imagen-conoce img {
+        width: 500px;
+        max-width: 500px;
+    }
+    .div_1 {
+        width: 600px;
+        margin-left: -220px;
+    }
+    .div_2 {
+        margin-top: -180px;
+        margin-left: -60px;
+        height: 150px;
+    }
+    .conoce_principal {
+        margin-bottom: 10px;
+    }
+    .imagenes_con_turiapp {
+        margin-top: 100px;
+    }
+    .imagen-conoce {
+        padding-left: 0 !important;
+        margin-bottom: auto;
+        margin-top: auto;
+    }
+    .text_con_turi {
+        width: 100%;
+        text-align: justify;
+    }
+    .text_conoce {
+        width: 50%;
+    }
+}
+@media (max-width: 1090px) {
+    .imagen-conoce img {
+        width: 450px;
+        max-width: 450px;
+    }
+    .div_2 {
+        margin-top: -150px;
+        margin-left: -110px;
+        height: 130px;
+    }
+}
+@media (max-width: 990px) {
+    .conta {
+        height: 556px;
+    }
+
+    .text_conoce {
+        margin-left: 50px;
+        width: 60%;
+        font-size: 16px;
+    }
+    .title_conoce {
+        margin-left: 50px;
+    }
+
+    .imagen-conoce img {
+        width: 400px;
+        max-width: 400px;
+    }
+    .div_1 {
+        width: 550px;
+        margin-left: -220px;
+    }
+    .div_2 {
+        margin-top: -150px;
+        margin-left: -170px;
+        height: 130px;
+    }
+    .text_con_turi {
+        font-size: 16px;
+    }
+}
+@media (max-width: 864px) {
+    .conta {
+        height: 500px;
+    }
+
+    .text_conoce {
+        margin-left: 50px;
+        width: 70%;
+    }
+    .title_conoce {
+        margin-left: 50px;
+    }
+
+    .imagen-conoce img {
+        width: 350px;
+        max-width: 350px;
+    }
+    .div_1 {
+        width: 550px;
+        height: 90px;
+        margin-left: -220px;
+    }
+    .div_2 {
+        margin-top: -120px;
+        margin-left: -215px;
+        height: 100px;
+    }
+}
+@media (max-width: 763px) {
+    .conta {
+        height: 480px;
+    }
+    .text_conoce {
+        width: 80%;
+    }
+    .text_con_turi {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .imagen-conoce img {
+        width: 80%;
+        max-width: 80%;
+        margin-top: 40px;
+    }
+    .conoce_principal {
+        margin-bottom: 40px;
+    }
+    .div_1 {
+        display: none;
+    }
+    .div_2 {
+        display: none;
+    }
+    .segunda_parte {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: stretch;
+        justify-content: center;
+    }
+    .col-6 {
+        max-width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 512px) {
+    .conta {
+        height: 450px;
+    }
+    .conoce {
+        font-size: 40px;
+    }
+    .rivera {
+        font-size: 40px;
+    }
+    .text_conoce {
+        margin-left: 10px;
+        width: 100%;
+    }
+    .title_conoce {
+        margin-top: 0px;
+        margin-left: 10px;
+        text-align: center;
+    }
+    .text_con_turi {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .imagen-conoce img {
+        width: 80%;
+        max-width: 80%;
+        margin-top: 40px;
+    }
+    .conoce_principal {
+        margin-bottom: 40px;
+    }
+    .div_1 {
+        display: none;
+    }
+    .div_2 {
+        display: none;
+    }
+    .segunda_parte {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: stretch;
+        justify-content: center;
+    }
+    .col-6 {
+        max-width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 400px) {
+    .conta {
+        height: 550px;
+    }
+    .conoce {
+        font-size: 30px;
+    }
+    .rivera {
+        font-size: 30px;
+    }
+    .text_conoce {
+        margin-left: 10px;
+        width: 100%;
+    }
+    .con {
+        font-size: 35px;
+    }
+    p img {
+        max-width: 100px;
+        height: 49px;
+    }
+    .title_conoce {
+        margin-top: 0px;
+        margin-left: 10px;
+        text-align: center;
+    }
+    .text_con_turi {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .imagen-conoce img {
+        width: 80%;
+        max-width: 80%;
+        margin-top: 40px;
+    }
+    .conoce_principal {
+        margin-bottom: 40px;
+    }
+    .div_1 {
+        display: none;
+    }
+    .div_2 {
+        display: none;
+    }
+    .segunda_parte {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: stretch;
+        justify-content: center;
+    }
+    .col-6 {
+        max-width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 312px) {
+    .conta {
+        height: 600px;
+    }
 }
