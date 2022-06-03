@@ -56,5 +56,13 @@ Route::middleware(['auth'])->group(function () {
     //Servicios
     Route::view('/service', 'home')->name('service');
     Route::resource('/service-resource','ServiceController');
+    //Sitios turísticos
+    Route::resource('/tourist-site-resource','TouristSiteController');
+    //Reglas
+    Route::view('/rule', 'home')->name('rule');
+    Route::resource('/rule-resource','RuleController');
+    //Reglas
+    Route::view('/serviceSite', 'home')->name('serviceSite');
+    Route::resource('/service-site-resource','ServiceSiteController');
 
 });

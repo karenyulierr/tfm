@@ -8,7 +8,7 @@ class Rule extends Model
 {
     protected $table = 'rules';
     protected $fillable = [
-        'description',
+        'name',
         'state',
         'tourist_sities_id',
         'user_id',

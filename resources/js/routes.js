@@ -8,6 +8,8 @@ import User from "./components/Security/User";
 import Roles from "./components/Security/Roles";
 import Category from "./components/Category/Category";
 import Service from "./components/Service/Service";
+import Rule from "./components/Site/Rule";
+import ServiceSite from "./components/Site/ServiceSite";
 
 Vue.use(VueRouter);
 
@@ -21,6 +23,8 @@ const router = new VueRouter({
         { path: '/roles', name: 'roles', component: Roles },
         { path: '/category', name: 'category', component: Category },
         { path: '/service', name: 'service', component: Service },
+        { path: '/rule', name: 'rule', component: Rule },
+        { path: '/serviceSite', name: 'serviceSite', component: ServiceSite },
     ]
 });
 

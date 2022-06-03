@@ -64,6 +64,12 @@ return [
             'url' => env('AWS_URL'),
             'endpoint' => env('AWS_ENDPOINT'),
         ],
+        'img_main' => [
+            'driver' => 'local',
+            'root' => public_path('soportes/img_main'),
+            'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
+        ],
 
     ],
 
