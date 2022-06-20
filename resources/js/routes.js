@@ -10,6 +10,8 @@ import Category from "./components/Category/Category";
 import Service from "./components/Service/Service";
 import Rule from "./components/Site/Rule";
 import ServiceSite from "./components/Site/ServiceSite";
+import ImgSite from "./components/Site/ImgSite";
+import Plan from "./components/Plan/Plan";
 
 Vue.use(VueRouter);
 
@@ -25,6 +27,8 @@ const router = new VueRouter({
         { path: '/service', name: 'service', component: Service },
         { path: '/rule', name: 'rule', component: Rule },
         { path: '/serviceSite', name: 'serviceSite', component: ServiceSite },
+        { path: '/imageSite', name: 'imageSite', component: ImgSite },
+        { path: '/plans', name: 'plans', component: Plan },
     ]
 });
 
