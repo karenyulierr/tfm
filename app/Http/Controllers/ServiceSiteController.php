@@ -47,22 +47,55 @@ class ServiceSiteController extends Controller
     public function store(Request $request)
     {
         if($request->band == 'create') {
+            $exist= Service::join('tourist_site_services', 'tourist_site_services.service_id', '=', 'services.id')
+                ->where([['tourist_site_services.tourist_site_id',$request->site_id],['services.name',$request->service]])->exists();
+
+            if($exist==false){
+                TouristSiteService::where([['tourist_site_id', $request->site_id],['service_id',$request->sr_id]])->delete();
+                $service = Service::updateOrCreate(
+                    [
+                        'name' => $request->service
+                    ],
+                    [
+                        'name' => $request->service,
+                        'state' => 'active',
+                        'user_id' => Auth::user()->id
+                    ]
+                );
+                TouristSiteService::create([
+                    'tourist_site_id' => $request->site_id,
+                    'service_id' => $service->id,
+                    'start_day' => $request->start_day,
+                    'end_day' => $request->end_day,
+                    'value' => $request->price,
+                    'state' => 'active',
+                    'user_id' => Auth::user()->id
+                ]);
+                return response()->json($exist);
+            } else{
+                return response()->json($exist);
+            }
+
+        }else{
+            $service = Service::updateOrCreate(
+                [
+                    'name' => $request->service
+                ],
+                [
+                    'name' => $request->service,
+                    'state' => 'active',
+                    'user_id' => Auth::user()->id
+                ]
+            );
+            TouristSiteService::where([['tourist_site_id', $request->site_id],['service_id',$request->sr_id]])->delete();
             TouristSiteService::create([
                 'tourist_site_id' => $request->site_id,
-                'service_id' => $request->service,
+                'service_id' => $service->id,
                 'start_day' => $request->start_day,
                 'end_day' => $request->end_day,
                 'value' => $request->price,
                 'state' => 'active',
                 'user_id' => Auth::user()->id
-            ]);
-        }else{
-            TouristSiteService::where('id',$request->id)->update([
-                'tourist_site_id' => $request->site_id,
-                'service_id' => $request->service,
-                'start_day' => $request->start_day,
-                'end_day' => $request->end_day,
-                'value' => $request->price,
             ]);
         }
     }
@@ -116,5 +149,21 @@ class ServiceSiteController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function searchService($param)
+    {
+        $data = explode(" ", $param);
+        $json = [];
+        for($i=0; $i < count($data); $i++) {
+            $conditional = ['name', 'like', '%'.$data[$i].'%'];
+            array_push($json, $conditional);
+        }
+        $service = Service::where($json)->limit(5)->get();
+        return response()->json($service);
+    }
+    public function getServiceInput($id)
+    {
+        $position = Service::where('id', $id)->first();
+        return response()->json($position);
     }
 }

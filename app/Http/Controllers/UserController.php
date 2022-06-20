@@ -72,6 +72,10 @@ class UserController extends Controller
         $user = User::find($id);
         $user->name = $request->name;
         $user->email = $request->email;
+        if($request->password!=''){
+            $user->password = bcrypt($request->password);
+        }
+
         $user->save();
 
 //         Asignación del rol

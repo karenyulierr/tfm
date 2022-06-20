@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
+use App\Image;
+use App\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
-class CategoryController extends Controller
+class ImgSiteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +17,11 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $category = Category::orderBy('name', 'ASC')->get();
-        return response()->json($category);
+        switch ($_GET['Q']) {
+            case 0:
+                $sql = Image::where('tourist_sities_id',$_GET['site_id'])->get();
+                return response()->json($sql);
+        }
     }
 
     /**
@@ -37,35 +42,17 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+        $file = $request->file('file');
 
-        if($request->band=="create"){
-            $category = Category::where('name',$request->name)->exists();
-
-            if($category == false) {
-                $sql = Category::create([
-                    'name' => $request->name,
-                    'state' => 'active',
-                    'user_id' => Auth::user()->id
-                ]);
-            }else{
-                $sql = $category;
-            }
-            return response()->json($sql);
-        } else {
-            $category = Category::where('name',$request->name)->exists();
-
-            if($category == false) {
-                $sql=Category::where('id',$request->id)->update([
-                    'name' => $request->name,
-                    'state' => 'active',
-                    'user_id' => Auth::user()->id
-                ]);
-                return response()->json(false);
-            }else{
-                $sql = $category;
-                return response()->json($sql);
-            }
-
+        for($i = 0; $i < sizeof($file); $i++){
+            $fileName = $request->site_id . '_site'.$i.date('_H_i_s').'.'.$file[$i]->getClientOriginalExtension();
+            Image::create([
+                'name' => $fileName,
+                'state' => 'active',
+                'tourist_sities_id' => $request->site_id,
+                'user_id' => Auth::user()->id,
+            ]);
+            $file[$i]->move(public_path('soportes/img_site'), $fileName);
         }
     }
 
@@ -88,8 +75,7 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $category = Category::where('id',$id)->first();
-        return response()->json($category);
+        //
     }
 
     /**
@@ -101,7 +87,7 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Category::where('id',$request->id)->update([
+        Image::where('id',$request->id)->update([
             'state' => $request->state
         ]);
     }
@@ -114,6 +100,9 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $img = Image::where('id', $id)->get();
+        unlink(config('app.img_site') . $img[0]->name);
+        $response = Image::where('id', $id)->delete();
+        return response()->json($response);
     }
 }

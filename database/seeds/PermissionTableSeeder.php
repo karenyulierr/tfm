@@ -48,6 +48,9 @@ class PermissionTableSeeder extends Seeder
         Permission::updateOrCreate([
             'name' => 'Crear reglas'
         ]);
+        Permission::updateOrCreate([
+            'name' => 'Ver planes turísticos'
+        ]);
         $Admin->givePermissionTo(Permission::all());
     }
 }

@@ -103,7 +103,7 @@
                                         <div class="avatar-lg"><img src="{{ asset('img/user.png') }}" alt="image profile" class="avatar-img rounded"></div>
                                         <div class="u-text">
                                             <h4>{{ Auth::user()->name }}</h4>
-                                            <p class="text-muted">{{ Auth::user()->email }}</p><a href="/myProfile" class="btn btn-xs btn-secondary btn-sm">Ver Perfil</a>
+                                            <p class="text-muted">{{ Auth::user()->email }}</p>
                                         </div>
                                     </div>
                                 </li>
@@ -181,7 +181,14 @@
                                 </a>
                             </li>
                         @endcan
-
+                        @can('Ver planes turísticos')
+                            <li class="nav-item">
+                                <a href="/" >
+                                    <i class="fas fa-route clr-font"></i>
+                                    <span class="clr-font">Planes turísticos</span>
+                                </a>
+                            </li>
+                        @endcan
 
                 </ul>
             </div>

@@ -11,6 +11,7 @@ class PlanTourist extends Model
         'name',
         'description',
         'value',
+        'main_image',
         'state',
         'user_id',
     ];

@@ -190,7 +190,12 @@
                                         </div>
                                     </div>
                                     <div class="row">
-
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label for="edit_name" class="control-label">Contraseña: </label>
+                                                <input type="text" v-model="pass_edit" class="form-control">
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="row mt-3">
                                         <div class="col">
@@ -322,6 +327,7 @@
                 names_edit: '',
                 email_edit: '',
                 rol_id_edit: '',
+                pass_edit: '',
                 permission_selected_edit: [],
                 permissions: [],
                 user: '',
@@ -472,6 +478,7 @@
                 $("#ModalEdit").modal('show');
                 this.user_id = id;
                 this.loadEdit = true;
+                this.pass_edit = '';
                 axios.get('/users-resource/' + id + '/edit').then((response) => {
                     let data = response.data;
                     let users = data.users;
@@ -493,6 +500,7 @@
                     name: this.names_edit,
                     email: this.email_edit,
                     role_id: this.rol_id_edit,
+                    password: this.pass_edit,
                 };
                 axios.put('/users-resource/'+this.user_id, formData).then((response) => {
                     this.getUsers();
