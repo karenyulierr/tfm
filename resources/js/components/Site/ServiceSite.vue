@@ -3,6 +3,7 @@
         <div class="page-inner">
             <div class="row">
                 <div class="col">
+                    <a name="servi"></a>
                     <div class="card">
                         <div class="card-header" style="background: #E7E7E7">
                             <div class="card-title">
@@ -18,11 +19,28 @@
                             <div class="row">
                                 <div class="offset-md-2 offset-lg-2 col-md-8 col-lg-8">
                                     <b-form @submit.prevent="setServiceSite()" autocomplete="off">
-                                        <b-form-group id="fieldset-file1" lass="mt-2" label="Servicio:">
+                                        <b-form-group label="Servicio:" class="mt-2">
+                                            <div id="searching_div" class="p-2 rounded">
+                                                <div class="div-search">
+                                                    <div class="row-icon">
+                                                        <i class="fas fa-search icon-searching"></i>
+                                                    </div>
+                                                    <input type="text" id="input_search" v-model="service"
+                                                           @keyup="searchService" placeholder="Nombre del servicio">
+                                                </div>
+                                                <div v-for="(element, index) in service_opt" :key="index">
+                                                    <div class="row_searching elements">
+                                                        <div class="result_row" v-text="element.name" @click="getServiceInput(element.id, element.name)"></div>
+                                                    </div>
+                                                    <br>
+                                                </div>
+                                            </div>
+                                        </b-form-group>
+                                        <!--<b-form-group id="fieldset-file1" lass="mt-2" label="Servicio:">
                                             <multiselect v-model="service" deselect-label="Can't remove this value" track-by="name" label="name" placeholder="Seleccione una opción" :options="service_opt" :searchable="true" :allow-empty="true" :multiple="false" required>
                                                 <template slot="singleLabel" slot-scope="{ option }">{{ option.name }}</template>
                                             </multiselect>
-                                        </b-form-group>
+                                        </b-form-group>-->
                                         <div class="row">
                                             <div class="col-6">
                                                 <b-form-group id="fieldset-file1" lass="mt-2" label="Día inicial:" class="mt-2">
@@ -42,7 +60,7 @@
                                         <div class="row">
                                             <div class="col-6">
                                                 <b-form-group id="fieldset-file1" lass="mt-2" label="Valor:" class="mt-2">
-                                                    <input type="number" v-model="price" class="form-control" required />
+                                                    <input type="text" v-model="price" class="form-control" @input="formatNum(price,1)" required />
                                                 </b-form-group>
                                             </div>
                                         </div>
@@ -62,7 +80,7 @@
 
                             <vue-bootstrap4-table :rows="rows" :columns="columns" :config="config">
                                 <template slot="options" slot-scope="props">
-                                    <b-button size="sm" class="btn-tble" href="#category" @click="getServiceId(props.cell_value), band_service='update'" title="Editar Regla"><i class="fa fa-edit text-white"></i></b-button>
+                                    <b-button size="sm" class="btn-tble" href="#servi" @click="getServiceId(props.cell_value), band_service='update'" title="Editar Servicio"><i class="fa fa-edit text-white"></i></b-button>
                                 </template>
                                 <template slot="status" slot-scope="props">
                                     <div class="switch">
@@ -98,7 +116,7 @@ name: "ServiceSite",
         this.site_id = JSON.parse(localStorage.getItem('site_id'));
         this.name_site = JSON.parse(localStorage.getItem('name_site'));
         this.getServiceSite();
-        this.getServiceActive();
+        //this.getServiceActive();
     },
     data: function () {
         return {
@@ -122,9 +140,11 @@ name: "ServiceSite",
             site_id:'',
             band_service:'create',
             service:'',
+            sr_id:'',
             start_day:'',
             end_day:'',
-            price:'',
+            price:'0',
+            value_price:'',
             service_id:'',
             service_opt:[],
             checkboxes:[],
@@ -158,7 +178,7 @@ name: "ServiceSite",
                         id: response.data[i].id
                     };
                     arr.push(formData);
-                    category_aux.push({"item": count++, "name": response.data[i].name,"start_day": response.data[i].start_day,"end_day": response.data[i].end_day,"value": response.data[i].value, "status": arr, "options": response.data[i].id});
+                    category_aux.push({"item": count++, "name": response.data[i].name,"start_day": response.data[i].start_day,"end_day": response.data[i].end_day,"value": '$ '+response.data[i].value, "status": arr, "options": response.data[i].id});
                     checkboxes_aux.push(response.data[i].state == 'active' ? true : false);
                 }
                 this.rows = category_aux;
@@ -169,19 +189,25 @@ name: "ServiceSite",
         setServiceSite: function() {
             this.loadCreate = false;
             let formData = {
-                service: this.service.id,
+                service: this.service,
                 start_day: this.start_day.name,
                 end_day: this.end_day.name,
                 price: this.price,
                 site_id: this.site_id,
                 id: this.service_id,
                 band: this.band_service,
+                sr_id: this.sr_id,
             };
             axios.post('/service-site-resource', formData).then((response) => {
-                this.loadCreate = true;
-                this.getServiceSite();
-                this.reset();
-                this.messageAlert('success','Correcto!','Servicio guardado con éxito!');
+                if(response.data==true){
+                    this.loadCreate = true;
+                    this.messageAlert('warning','Atención!','Este servicio ya existe!');
+                } else{
+                    this.loadCreate = true;
+                    this.getServiceSite();
+                    this.reset();
+                    this.messageAlert('success','Correcto!','Servicio guardado exitosamente!');
+                }
             }).catch((error) => {
                 console.log(error);
                 this.loadCreate = true;
@@ -191,7 +217,8 @@ name: "ServiceSite",
             this.service_id = id;
             axios.get('service-site-resource/'+id+'/edit').then(response => {
                 let data = response.data;
-                this.service = {id:data.id_service, name:data.name};
+                this.service = data.name;
+                this.sr_id = data.id_service;
                 this.start_day = {id:data.id,name:data.start_day};
                 this.end_day = {id:data.id,name:data.end_day};
                 this.price = data.value;
@@ -223,6 +250,30 @@ name: "ServiceSite",
                 }
             });
         },
+        searchService: function() {
+            if(this.service.length > 0) {
+                axios.get('/searchService/'+this.service).then((response) => {
+                    if(response.data.length > 0 && this.service.length > 0){
+                        this.service_opt = response.data;
+                    }else{
+                        this.service_opt = [];
+                    }
+                }).catch((error) => {
+                    console.log(error);
+                });
+            }else{
+                this.service_opt = [];
+            }
+        },
+        getServiceInput: function(id, name) {
+            axios.get('/getServiceInput/' + id).then((response) => {
+                this.service = name;
+                this.service_opt = [];
+            }).catch((error) => {
+                console.log(error);
+            });
+        },
+
         formatNum: function(input,index)
         {
             let number = input;
@@ -234,10 +285,11 @@ name: "ServiceSite",
                     this.price = num;
                 }
             }else{
-                this.messageAlert('warning', 'Atención!', 'Solo se permiten números');
+                alert('Solo se permiten números');
                 if (index == 1){
                     this.price = this.price.replace(/[^\d\.]*/g,'');
                 }
+
             }
         },
         removeLocal: function () {
@@ -247,6 +299,7 @@ name: "ServiceSite",
         },
         reset: function () {
             this.service="";
+            this.sr_id="";
             this.start_day="";
             this.end_day="";
             this.price="";
@@ -278,5 +331,34 @@ button {
 .btn-tble{
     background-color:rgb(108, 117, 125) !important;
     border: none;
+}
+#searching_div {
+    border-radius: 5px;
+    border: 1px solid lightgray;
+}
+.div-search{
+    display: flex;
+    align-items: center;
+    justify-content:  space-around;
+}
+.row_searching {
+    display: inline-flex;
+    height: 2em;
+}
+.elements:hover {
+    background-color: #f7f4f4;
+    color:black;
+    cursor: default;
+}
+#input_search {
+    width:29rem;
+    border:none;
+    padding-left:1em;
+    padding-top:6px;
+}
+.result_row {
+    width:30rem;
+    border:none;
+    padding-left:1em;
 }
 </style>

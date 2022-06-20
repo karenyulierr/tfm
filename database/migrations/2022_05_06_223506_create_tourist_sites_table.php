@@ -19,7 +19,7 @@ class CreateTouristSitesTable extends Migration
             $table->text('description')->nullable();
             $table->string('nit')->unique();
             $table->string('email')->unique();
-            $table->string('phone')->unique();
+            $table->string('phone');
             $table->enum('state',['active','inactive']);
             $table->unsignedBigInteger('user_id');
             $table->timestamps();

@@ -19,15 +19,27 @@ Route::get('/', function () {
     return view('welcome');
 });
 /** Inicio */
-Route::get('/contact', function () {
-    return view('contact');
-});
-Route::get('/meet_rivera', function () {
-    return view('meet_rivera');
-});
-Route::get('/tourist_plans', function () {
-    return view('tourist_plans');
-});
+Route::get('/', 'CategoryApiController@index')->name('welcome');
+Route::get('/contact', 'CategoryApiController@contact')->name('contact');
+Route::get('/meet_rivera', 'CategoryApiController@meet_rivera')->name('meet_rivera');
+Route::get('/tourist_plans', 'CategoryApiController@tourist_plans')->name('tourist_plans');
+Route::get('/detail_plans', 'CategoryApiController@detail_plans')->name('detail_plans');
+Route::get('/categoryview', 'CategoryApiController@categoryview')->name('categoryview');
+
+Route::get('/categoryviewdetail', 'CategoryApiController@categoryviewdetail')->name('categoryviewdetail');
+
+// Route::get('/contact', function () {
+//
+// });
+// Route::get('/meet_rivera', function () {
+//     return view('meet_rivera');
+// });
+// Route::get('/tourist_plans', function () {
+//     return view('tourist_plans');
+// });
+// Route::get('/detail_plans', function () {
+//     return view('detail_plans');
+// });
 /**Fin inicio */
 
 //Route::get('/', 'Auth\LoginController@showLoginForm');
@@ -61,8 +73,14 @@ Route::middleware(['auth'])->group(function () {
     //Reglas
     Route::view('/rule', 'home')->name('rule');
     Route::resource('/rule-resource','RuleController');
-    //Reglas
+    //Servicios sitio
     Route::view('/serviceSite', 'home')->name('serviceSite');
     Route::resource('/service-site-resource','ServiceSiteController');
-
+    Route::get('/searchService/{id}', 'ServiceSiteController@searchService')->name('searchService');
+    Route::get('/getServiceInput/{id}', 'ServiceSiteController@getServiceInput')->name('getServiceInput');
+    //Imagenes sitio
+    Route::view('/imageSite', 'home')->name('imageSite');
+    Route::resource('/image-site-resource','ImgSiteController');
+    //Planes turísticos
+    Route::view('/plans', 'home')->name('plans');
 });

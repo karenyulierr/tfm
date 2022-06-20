@@ -43,14 +43,12 @@ class ServiceController extends Controller
             if($request->description==''){
                 $sql = Service::create([
                     'name' => $request->name,
-                    'description' => 'Sin descripción',
                     'state' => 'active',
                     'user_id' => Auth::user()->id
                 ]);
             } else {
                 $sql = Service::create([
                     'name' => $request->name,
-                    'description' => $request->description,
                     'state' => 'active',
                     'user_id' => Auth::user()->id
                 ]);

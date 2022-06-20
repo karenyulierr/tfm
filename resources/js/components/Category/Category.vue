@@ -22,7 +22,7 @@
                                         <div class="row form-group mt-3">
                                             <div class="col-md-12 col-lg-12 col-sm-12 text-center" v-if="loadCreate">
                                                 <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Guardar</button>
-                                                <button type="reset" id="btCan" class="btn btn-danger"><i class="fas fa-window-close"></i> Cancelar</button>
+                                                <button type="reset" id="btCan" @click="band='create',id=''" class="btn btn-danger"><i class="fas fa-window-close"></i> Cancelar</button>
                                             </div>
                                             <div class="col-md-12 col-lg-12 col-sm-12 text-center" v-else>
                                                 <i class="fa fa-spinner fa-spin"></i> Guardando...
@@ -34,7 +34,7 @@
                             <br>
                             <vue-bootstrap4-table :rows="rows" :columns="columns" :config="config">
                                 <template slot="options" slot-scope="props">
-                                    <b-button size="sm" class="btn-tble" href="#category" v-b-modal.update-rol @click="getCategoryId(props.cell_value)" title="Editar Categoria"><i class="fa fa-edit text-white"></i></b-button>
+                                    <b-button size="sm" class="btn-tble" href="#category" v-b-modal.update-rol @click="getCategoryId(props.cell_value), band='update'" title="Editar Categoria"><i class="fa fa-edit text-white"></i></b-button>
                                 </template>
                                 <template slot="status" slot-scope="props">
                                     <div class="switch">
@@ -87,6 +87,8 @@ name: "Category",
             },
             loadCreate: true,
             name:'',
+            id:'',
+            band:'create',
             checkboxes:[],
         }
     },
@@ -117,9 +119,13 @@ name: "Category",
             this.loadCreate = false;
             let formData = {
                 name: this.name,
+                id: this.id,
+                band: this.band,
             };
             axios.post('/category-resource', formData).then((response) => {
                 this.name="";
+                this.id='';
+                this.band='create';
                 this.loadCreate = true;
                 if(response.data == true){
                     this.messageAlert('warning','Atención!','Esta categoria ya existe!');
@@ -133,6 +139,7 @@ name: "Category",
             });
         },
         getCategoryId: function (id){
+            this.id=id;
             axios.get('category-resource/'+id+'/edit').then(response => {
                 let data = response.data;
                 this.name = data.name;
@@ -147,7 +154,6 @@ name: "Category",
                 //Success
                 this.messageAlert('success', 'Correcto!', 'Estado actualizado');
                 this.getCategory();
-
             }).catch((error) => {
                 console.log(error.response);
             });

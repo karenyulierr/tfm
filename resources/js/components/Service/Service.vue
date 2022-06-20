@@ -19,13 +19,6 @@
                                         <b-form-group label="Nombre servicio:">
                                             <b-form-input v-model="name" required></b-form-input>
                                         </b-form-group>
-                                        <b-form-group label="Descripción:">
-                                            <b-form-textarea
-                                                id="textarea"
-                                                v-model="description"
-                                                rows="3"
-                                            ></b-form-textarea>
-                                        </b-form-group>
                                         <div class="row form-group mt-3">
                                             <div class="col-md-12 col-lg-12 col-sm-12 text-center" v-if="loadCreate">
                                                 <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Guardar</button>
@@ -78,7 +71,7 @@ export default {
     data: function () {
         return {
             rows:[],
-            columns: [{label: "#", name: "item", sort: true},{label: "Servicio", name: "name"},{label: "Descripción", name: "description"},{label: "Estado",name: "status"},{label: "Opciones", name: "options"}],
+            columns: [{label: "#", name: "item", sort: true},{label: "Servicio", name: "name"},{label: "Estado",name: "status"},{label: "Opciones", name: "options"}],
             config: {
                 show_refresh_button: false,
                 show_reset_button: false,
@@ -94,7 +87,6 @@ export default {
             },
             loadCreate: true,
             name:'',
-            description:'',
             checkboxes:[],
         }
     },
@@ -114,7 +106,7 @@ export default {
                         id: response.data[i].id
                     };
                     arr.push(formData);
-                    service_aux.push({"item": count++, "name": response.data[i].name, "description": response.data[i].description, "status": arr, "options": response.data[i].id});
+                    service_aux.push({"item": count++, "name": response.data[i].name, "status": arr, "options": response.data[i].id});
                     checkboxes_aux.push(response.data[i].state == 'active' ? true : false);
                 }
                 this.rows = service_aux;
@@ -124,12 +116,10 @@ export default {
         setService: function() {
             this.loadCreate = false;
             let formData = {
-                name: this.name,
-                description: this.description,
+                name: this.name
             };
             axios.post('/service-resource', formData).then((response) => {
                 this.name="";
-                this.description="";
                 this.loadCreate = true;
                 if(response.data == true){
                     this.messageAlert('warning','Atención!','Este servicio ya existe!');
@@ -146,7 +136,6 @@ export default {
             axios.get('service-resource/'+id+'/edit').then(response => {
                 let data = response.data;
                 this.name = data.name;
-                this.description = data.description;
             });
         },
         stateService: function(id, state){

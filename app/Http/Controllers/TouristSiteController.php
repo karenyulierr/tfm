@@ -29,7 +29,7 @@ class TouristSiteController extends Controller
                 if ($rol->rol == 'Administrador') {
                     $service = TouristSite::orderBy('name', 'ASC')->get();
                 } else {
-                    $service = TouristSite::where('user_admin', $id)->orderBy('name', 'ASC')->get();
+                    $service = TouristSite::where([['user_admin', $id],['state','active']])->orderBy('name', 'ASC')->get();
                 }
                 return response()->json($service);
             case 1:

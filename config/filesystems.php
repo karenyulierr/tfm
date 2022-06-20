@@ -70,6 +70,12 @@ return [
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
         ],
+        'img_site' => [
+            'driver' => 'local',
+            'root' => public_path('soportes/img_site'),
+            'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
+        ],
 
     ],
 

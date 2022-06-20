@@ -15,7 +15,7 @@
         </div>
     </div>
     <div class="row">
-   
+
         <div class=" col-sm-6 col-md-6 col-lg-6 col-xl-6 info_login">
             <div class="card">
                 <span class="bienvenido">bienvenido a</span>
@@ -55,13 +55,13 @@
                         </div>
                     </div>
 
-                    <div class="text-right">
+                    <!--<div class="text-right">
                         @if (Route::has('password.request'))
                         <a class="text-right color_gris" href="{{ route('password.request') }}">
                             Olvide contraseña?
                         </a>
                         @endif
-                    </div>
+                    </div>-->
                     <br>
                     <button type="submit" class="btn color_btn  ml-3 shadow">
                         Ingresar

@@ -8,7 +8,7 @@
                             <div class="card-title" v-if="showCreate">
                                 <template>
                                     <div class="pull-right" v-if="$can('Crear sitios turísticos')">
-                                        <button class="btn" style="background: #555555; color: white" @click="createFile(),band='create',see=false">Agregar sitio <i class="fa fa-plus"></i></button>
+                                        <button class="btn" style="background: #555555; color: white" @click="createFile(),band='create',see=false, band_edit=false">Agregar sitio <i class="fa fa-plus"></i></button>
                                     </div>
                                     <h2 class="clr-font"><b>Sitios turísticos</b></h2>
                                 </template>
@@ -18,7 +18,9 @@
                                     <div class="pull-right">
                                         <button class="btn" style="background: #555555; color: white" @click="showCreate=true, site=false"><i class="fa fa-arrow-left"></i> Regresar </button>
                                     </div>
-                                    <h2 class="clr-font"><b>Agregar sitio turístico</b></h2>
+                                    <h2 class="clr-font" v-if="band=='create'"><b>Agregar sitio turístico</b></h2>
+                                    <h2 class="clr-font" v-if="see"><b>Detalle sitio turístico</b></h2>
+                                    <h2 class="clr-font" v-if="band_edit"><b>Editar sitio turístico</b></h2>
                                 </template>
                             </div>
                         </div>
@@ -31,10 +33,11 @@
                                         </button>
                                         <div>
                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                                <a class="dropdown-item" href="#" v-on:click="getTouristSiteId(props.cell_value),band='update', see=true, showCreate=false, site=true"><i class="fas fa-eye"></i> Detalle </a>
-                                                <a class="dropdown-item" href="#" v-on:click="getTouristSiteId(props.cell_value),band='update', see=false"><i class="fas fa-edit"></i> Editar </a>
-                                                <a class="dropdown-item" v-on:click="rules(props.cell_value, props.row.name),see=false"><i class="fas fa-list-ol"></i> Reglas</a>
-                                                <a class="dropdown-item" href="#" v-on:click="services(props.cell_value, props.row.name),see=false"><i class="fas fa-clipboard-list"></i> Servicios</a>
+                                                <a class="dropdown-item" href="#" v-on:click="getTouristSiteId(props.cell_value),band='update', see=true, showCreate=false, site=true, band_edit=false"><i class="fas fa-eye"></i> Detalle </a>
+                                                <a class="dropdown-item" href="#" v-on:click="getTouristSiteId(props.cell_value),band='update', see=false, band_edit=true"><i class="fas fa-edit"></i> Editar </a>
+                                                <a class="dropdown-item" v-on:click="rules(props.cell_value, props.row.name),see=false,band='create',band_edit=false"><i class="fas fa-list-ol"></i> Reglas</a>
+                                                <a class="dropdown-item" href="#" v-on:click="services(props.cell_value, props.row.name),see=false,band='create',band_edit=false"><i class="fas fa-clipboard-list"></i> Servicios</a>
+                                                <a class="dropdown-item" href="#" v-on:click="images(props.cell_value, props.row.name),see=false,band='create',band_edit=false"><i class="fas fa-images"></i> Imagenes</a>
                                             </div>
                                         </div>
                                     </div>
@@ -47,7 +50,7 @@
                                             Activo
                                         </label>
                                         <label v-else-if="props.cell_value[0].status == 'inactivo'" class="switch">
-                                            <input type="checkbox" v-model="checkboxes[props.row.vbt_id-1]" @change="stateTouristSite(props.row.options, 'active', 'Activo')" name="check-button">
+                                            <input type="checkbox" v-model="checkboxes[props.row.vbt_id-1]" @change="stateTouristSite(props.row.options, 'active', 'Activo')" name="check-button" >
                                             <span class="lever"></span><br>
                                             Inactivo
                                         </label>
@@ -133,12 +136,12 @@
                             </div>
                             <div class="row mt-2">
                                 <div class="col-6">
-                                    <b-form-group id="fieldset-start_time" label="Hora inicio:">
+                                    <b-form-group id="fieldset-start_time" label="Hora apertura:">
                                         <input type="time" class="form-control" v-model="start_time" :disabled="see" required>
                                     </b-form-group>
                                 </div>
                                 <div class="col-6">
-                                    <b-form-group id="fieldset-start_time" label="Hora fin:">
+                                    <b-form-group id="fieldset-start_time" label="Hora cierre:">
                                         <input type="time" class="form-control" v-model="end_time" :disabled="see" required>
                                     </b-form-group>
                                 </div>
@@ -211,6 +214,7 @@ export default {
             loadNit: false,
             loadName: false,
             see: false,
+            band_edit: false,
             band:'',
             site:'',
             site_id:'',
@@ -432,6 +436,11 @@ export default {
             localStorage.setItem('site_id', JSON.stringify(id));
             localStorage.setItem('name_site', JSON.stringify(name));
             this.$router.push({path: '/serviceSite'});
+        },
+        images: function (id,name) {
+            localStorage.setItem('site_id', JSON.stringify(id));
+            localStorage.setItem('name_site', JSON.stringify(name));
+            this.$router.push({path: '/imageSite'});
         },
         messageAlert: function(state, title, msj) {
             this.$swal({
