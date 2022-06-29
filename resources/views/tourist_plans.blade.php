@@ -32,7 +32,7 @@
             </div>
             <div class="col-md-3 col-sm-12 valor_card">
                 <p class="value_card">$ 120.000</p>
-                <a href="#" class="btn btn_card">Ver</a>
+                <a href="/detail_plans" class="btn btn_card">Ver</a>
             </div>
         </div>
     </div>

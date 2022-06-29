@@ -43,11 +43,14 @@
 
 
                         <div class="dropdown-menu " aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">Fincas</a>
+                            @foreach($category as $key => $value)
+                            <a class="dropdown-item"  href="/categoryview?category_id={{ $value->id }}">{{ $value->name }}</a>
+                            @endforeach
+                            {{-- <a class="dropdown-item" href="#">Fincas</a>
                             <a class="dropdown-item" href="#">Termales</a>
                             <a class="dropdown-item" href="#">Miradores</a>
                             <a class="dropdown-item" href="#">Hoteles</a>
-                            <a class="dropdown-item" href="#">Restaurantes</a>
+                            <a class="dropdown-item" href="#">Restaurantes</a> --}}
 
                         </div>
                     </li>
