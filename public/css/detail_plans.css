@@ -1,0 +1,645 @@
+.detail_planes {
+    margin-top: 100px;
+    /* width: 100%;
+    max-width: 100%; */
+    margin-bottom: 50px;
+}
+.detail_planes_title {
+    margin: 0 !important;
+    /* width: 90%;
+    max-width: 90%; */
+}
+.img_title {
+    margin-left: 80px;
+    margin-bottom: 20px;
+}
+.img_title span {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 75px;
+    text-transform: capitalize;
+    color: #1e1e1e;
+    display: inline-block;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+.img_title img {
+    width: 139px;
+    height: 112px;
+    border-radius: 100px;
+    object-fit: cover;
+}
+.barra_detail {
+    width: 100%;
+    height: 40px;
+    background-color: #f2f2f2;
+}
+.clasificacion {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.estrellas {
+    color: #f6973f;
+    font-size: 25px;
+}
+.horario {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 38px;
+    color: #03b8ad;
+    opacity: 0.9;
+}
+.text_detail_plans {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 38px;
+    color: #1e1e1e;
+    opacity: 0.9;
+}
+
+.detail_imagenes {
+    margin: auto !important;
+    padding: 0 !important;
+    /* width: 90%;
+    max-width: 90%; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.fila1 {
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 65%;
+}
+.fila1 .image1 img {
+    width: 387px;
+    height: 211px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+.fila1 .image2 img {
+    width: 811px;
+    height: 211px;
+    border-radius: 50px;
+    object-fit: cover;
+}
+
+.fila2 {
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 65%;
+}
+.fila2 .image1 img {
+    width: 387px;
+    height: 210px;
+    object-fit: cover;
+}
+.fila2 .image2 img {
+    width: 386px;
+    height: 210px;
+    object-fit: cover;
+}
+.fila2 .image3 img {
+    width: 385px;
+    height: 210px;
+    object-fit: cover;
+}
+.fila3 {
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 65%;
+}
+.fila3 .image1 img {
+    width: 387px;
+    height: 211px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+.fila3 .image2 img {
+    width: 811px;
+    height: 211px;
+    border-radius: 50px;
+    object-fit: cover;
+}
+.col-4 {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.col-8 {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.ver_fotos {
+    font-size: 18px;
+    color: #00d6c9;
+    text-decoration: underline;
+}
+.ver_fotos:hover {
+    font-size: 18px;
+    color: #00d6c9;
+    text-decoration: underline;
+}
+hr {
+    height: 1px;
+    width: 95%;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+.description_detail_plans {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 90%;
+    max-width: 90%;
+}
+.deatil_description {
+}
+.descrip_plan_turi {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 185%;
+    color: #1e1e1e;
+    opacity: 0.8;
+}
+.texto_detail_turismo {
+    width: 50%;
+    max-width: 50%;
+    text-align: justify;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 185%;
+    color: #1e1e1e;
+    opacity: 0.8;
+}
+.valor_detail {
+    display: flex;
+    justify-content: flex-end;
+}
+.valor {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 45px;
+    text-align: center;
+    text-transform: capitalize;
+    color: #1e1e1e;
+}
+.value {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 45px;
+    text-align: center;
+    text-transform: capitalize;
+    color: #03b8ad;
+}
+@media (max-width: 1880px) {
+    .fila1 {
+        width: 70%;
+    }
+    .fila2 {
+        width: 70%;
+    }
+    .fila3 {
+        width: 70%;
+    }
+}
+@media (max-width: 1708px) {
+    .fila1 {
+        width: 75%;
+    }
+    .fila2 {
+        width: 75%;
+    }
+    .fila3 {
+        width: 75%;
+    }
+}
+@media (max-width: 1606px) {
+    .fila1 {
+        width: 80%;
+    }
+    .fila2 {
+        width: 80%;
+    }
+    .fila3 {
+        width: 80%;
+    }
+}
+@media (max-width: 1474px) {
+    .fila1 {
+        width: 85%;
+    }
+    .fila2 {
+        width: 85%;
+    }
+    .fila3 {
+        width: 85%;
+    }
+}
+@media (max-width: 1384px) {
+    .fila1 {
+        width: 90%;
+    }
+    .fila2 {
+        width: 90%;
+    }
+    .fila3 {
+        width: 90%;
+    }
+}
+@media (max-width: 1310px) {
+    .fila1 {
+        width: 95%;
+    }
+    .fila2 {
+        width: 95%;
+    }
+    .fila3 {
+        width: 95%;
+    }
+}
+@media (max-width: 1236px) {
+    .fila1 {
+        width: 100%;
+    }
+    .fila2 {
+        width: 100%;
+    }
+    .fila3 {
+        width: 100%;
+    }
+}
+
+@media (max-width: 1180px) {
+    .fila1 {
+        width: 95%;
+    }
+    .fila2 {
+        width: 95%;
+    }
+    .fila3 {
+        width: 95%;
+    }
+    .fila1 .image1 img {
+        width: 300px;
+        height: 200px;
+    }
+    .fila1 .image2 img {
+        width: 750px;
+        height: 200px;
+    }
+
+    .fila2 .image1 img {
+        width: 300px;
+        height: 200px;
+    }
+    .fila2 .image2 img {
+        width: 300px;
+        height: 200px;
+    }
+    .fila2 .image3 img {
+        width: 300px;
+        height: 200px;
+    }
+
+    .fila3 .image1 img {
+        width: 300px;
+        height: 200px;
+    }
+    .fila3 .image2 img {
+        width: 750px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 964px) {
+    .img_title {
+        margin-left: 50px;
+    }
+    .img_title span {
+        font-size: 40px;
+    }
+    .estrellas {
+        color: #f6973f;
+        font-size: 20px;
+    }
+    .horario {
+        font-size: 20px;
+    }
+    .ver_fotos {
+        font-size: 16px;
+    }
+    .ver_fotos:hover {
+        font-size: 16px;
+    }
+    hr {
+        width: 95%;
+    }
+    .text_detail_plans {
+        font-size: 20px;
+    }
+    .descrip_plan_turi {
+        font-size: 25px;
+    }
+    .texto_detail_turismo {
+        font-size: 16px;
+        width: 80%;
+        max-width: 80%;
+    }
+    .valor {
+        font-size: 25px;
+    }
+    .value {
+        font-size: 25px;
+    }
+    .fila1 .image1 img {
+        width: 200px;
+        height: 150px;
+    }
+    .fila1 .image2 img {
+        width: 650px;
+        height: 150px;
+    }
+
+    .fila2 .image1 img {
+        width: 200px;
+        height: 150px;
+    }
+    .fila2 .image2 img {
+        width: 200px;
+        height: 150px;
+    }
+    .fila2 .image3 img {
+        width: 200px;
+        height: 150px;
+    }
+
+    .fila3 .image1 img {
+        width: 200px;
+        height: 150px;
+    }
+    .fila3 .image2 img {
+        width: 650px;
+        height: 150px;
+    }
+}
+@media (max-width: 688px) {
+    .img_title {
+        margin-left: 30px;
+    }
+    .img_title span {
+        font-size: 30px;
+    }
+    .estrellas {
+        color: #f6973f;
+        font-size: 18px;
+    }
+    .horario {
+        font-size: 18px;
+    }
+    .ver_fotos {
+        font-size: 14px;
+    }
+    .ver_fotos:hover {
+        font-size: 14px;
+    }
+    .text_detail_plans {
+        font-size: 18px;
+    }
+    .descrip_plan_turi {
+        font-size: 20px;
+    }
+    .texto_detail_turismo {
+        font-size: 16px;
+        width: 90%;
+        max-width: 90%;
+    }
+    .valor {
+        font-size: 20px;
+    }
+    .value {
+        font-size: 20px;
+    }
+    .fila1 .image1 img {
+        width: 160px;
+        height: 100px;
+    }
+    .fila1 .image2 img {
+        width: 550px;
+        height: 100px;
+    }
+
+    .fila2 .image1 img {
+        width: 160px;
+        height: 100px;
+    }
+    .fila2 .image2 img {
+        width: 160px;
+        height: 100px;
+    }
+    .fila2 .image3 img {
+        width: 160px;
+        height: 100px;
+    }
+
+    .fila3 .image1 img {
+        width: 160px;
+        height: 100px;
+    }
+    .fila3 .image2 img {
+        width: 550px;
+        height: 100px;
+    }
+}
+@media (max-width: 552px) {
+    .img_title {
+        margin-left: 20px;
+    }
+    .img_title span {
+        font-size: 25px;
+    }
+    .estrellas {
+        font-size: 16px;
+    }
+    .horario {
+        font-size: 16px;
+    }
+    .text_detail_plans {
+        font-size: 16px;
+    }
+    .descrip_plan_turi {
+        font-size: 18px;
+    }
+    .valor {
+        font-size: 18px;
+    }
+    .value {
+        font-size: 18px;
+    }
+    .fila1 .image1 img {
+        width: 130px;
+        height: 80px;
+    }
+    .fila1 .image2 img {
+        width: 450px;
+        height: 80px;
+    }
+
+    .fila2 .image1 img {
+        width: 130px;
+        height: 80px;
+    }
+    .fila2 .image2 img {
+        width: 130px;
+        height: 80px;
+    }
+    .fila2 .image3 img {
+        width: 130px;
+        height: 80px;
+    }
+
+    .fila3 .image1 img {
+        width: 130px;
+        height: 80px;
+    }
+    .fila3 .image2 img {
+        width: 450px;
+        height: 80px;
+    }
+}
+
+@media (max-width: 426px) {
+    .texto_detail_turismo {
+        font-size: 14px;
+    }
+    .descrip_plan_turi {
+        font-size: 15px;
+    }
+    .valor {
+        font-size: 18px;
+    }
+    .value {
+        font-size: 18px;
+    }
+    .fila1 .image1 img {
+        width: 100px;
+        height: 50px;
+    }
+    .fila1 .image2 img {
+        width: 350px;
+        height: 50px;
+    }
+
+    .fila2 .image1 img {
+        width: 100px;
+        height: 50px;
+    }
+    .fila2 .image2 img {
+        width: 100px;
+        height: 50px;
+    }
+    .fila2 .image3 img {
+        width: 100px;
+        height: 50px;
+    }
+
+    .fila3 .image1 img {
+        width: 100px;
+        height: 50px;
+    }
+    .fila3 .image2 img {
+        width: 350px;
+        height: 50px;
+    }
+}
+@media (max-width: 332px) {
+    .img_title img {
+        width: 100px;
+        height: 80px;
+    }
+    .img_title {
+        margin-left: 10px;
+    }
+    .img_title span {
+        margin-left: 10px;
+        margin-top: 0px;
+        font-size: 20px;
+    }
+    .estrellas {
+        color: #f6973f;
+        font-size: 16px;
+    }
+    .horario {
+        font-size: 16px;
+    }
+    .texto_detail_turismo {
+        font-size: 10px;
+    }
+    .descrip_plan_turi {
+        font-size: 13px;
+    }
+    .valor {
+        font-size: 15px;
+    }
+    .value {
+        font-size: 15px;
+    }
+    .ver_fotos {
+        font-size: 10px;
+    }
+    .ver_fotos:hover {
+        font-size: 10px;
+    }
+    .fila1 .image1 img {
+        width: 70px;
+        height: 40px;
+    }
+    .fila1 .image2 img {
+        width: 250px;
+        height: 40px;
+    }
+
+    .fila2 .image1 img {
+        width: 70px;
+        height: 40px;
+    }
+    .fila2 .image2 img {
+        width: 70px;
+        height: 40px;
+    }
+    .fila2 .image3 img {
+        width: 70px;
+        height: 40px;
+    }
+
+    .fila3 .image1 img {
+        width: 70px;
+        height: 40px;
+    }
+    .fila3 .image2 img {
+        width: 250px;
+        height: 40px;
+    }
+}

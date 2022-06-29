@@ -13,37 +13,37 @@ class CategoryTableSeeder extends Seeder
     public function run()
     {
         Category::create([
-            'name' => 'Restaurante',
+            'name' => 'Restaurantes',
             'state' => 'active',
             'user_id' => 1,
         ]);
         Category::create([
-            'name' => 'Finca',
+            'name' => 'Fincas',
             'state' => 'active',
             'user_id' => 1,
         ]);
         Category::create([
-            'name' => 'Hotel',
+            'name' => 'Hoteles',
             'state' => 'active',
             'user_id' => 1,
         ]);
         Category::create([
-            'name' => 'Postrería',
+            'name' => 'Postrerías',
             'state' => 'active',
             'user_id' => 1,
         ]);
         Category::create([
-            'name' => 'Termalismo',
+            'name' => 'Termalismos',
             'state' => 'active',
             'user_id' => 1,
         ]);
         Category::create([
-            'name' => 'Casa de campo',
+            'name' => 'Casas de campo',
             'state' => 'active',
             'user_id' => 1,
         ]);
         Category::create([
-            'name' => 'Mirador',
+            'name' => 'Miradores',
             'state' => 'active',
             'user_id' => 1,
         ]);
