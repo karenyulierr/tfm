@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use app\Http\Controllers\ReviewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,18 +29,9 @@ Route::get('/categoryview', 'CategoryApiController@categoryview')->name('categor
 
 Route::get('/categoryviewdetail', 'CategoryApiController@categoryviewdetail')->name('categoryviewdetail');
 
-// Route::get('/contact', function () {
-//
-// });
-// Route::get('/meet_rivera', function () {
-//     return view('meet_rivera');
-// });
-// Route::get('/tourist_plans', function () {
-//     return view('tourist_plans');
-// });
-// Route::get('/detail_plans', function () {
-//     return view('detail_plans');
-// });
+Route::post('/reviewCreate', 'ReviewController@store')->name('reviewCreate');
+
+
 /**Fin inicio */
 
 //Route::get('/', 'Auth\LoginController@showLoginForm');
@@ -64,23 +56,23 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/updateRole/{id}', 'RoleController@update')->name('updateRole');
     //Categorias
     Route::view('/category', 'home')->name('category');
-    Route::resource('/category-resource','CategoryController');
+    Route::resource('/category-resource', 'CategoryController');
     //Servicios
     Route::view('/service', 'home')->name('service');
-    Route::resource('/service-resource','ServiceController');
+    Route::resource('/service-resource', 'ServiceController');
     //Sitios turísticos
-    Route::resource('/tourist-site-resource','TouristSiteController');
+    Route::resource('/tourist-site-resource', 'TouristSiteController');
     //Reglas
     Route::view('/rule', 'home')->name('rule');
-    Route::resource('/rule-resource','RuleController');
+    Route::resource('/rule-resource', 'RuleController');
     //Servicios sitio
     Route::view('/serviceSite', 'home')->name('serviceSite');
-    Route::resource('/service-site-resource','ServiceSiteController');
+    Route::resource('/service-site-resource', 'ServiceSiteController');
     Route::get('/searchService/{id}', 'ServiceSiteController@searchService')->name('searchService');
     Route::get('/getServiceInput/{id}', 'ServiceSiteController@getServiceInput')->name('getServiceInput');
     //Imagenes sitio
     Route::view('/imageSite', 'home')->name('imageSite');
-    Route::resource('/image-site-resource','ImgSiteController');
+    Route::resource('/image-site-resource', 'ImgSiteController');
     //Planes turísticos
     Route::view('/plans', 'home')->name('plans');
 });
