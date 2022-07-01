@@ -79,6 +79,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    flex-wrap: wrap;
 }
 .fila1 {
     margin: 0 !important;
@@ -94,17 +95,7 @@
     object-fit: cover;
     margin-top: 50px;
 }
-.fila1 .image3 img {
-    width: 273.29px;
-    height: 523px;
-    object-fit: cover;
-}
-.fila1 .image4 img {
-    width: 273.29px;
-    height: 523px;
-    object-fit: cover;
-    margin-top: 50px;
-}
+
 .ver_fotos {
     font-size: 18px;
     color: #00d6c9;
@@ -286,6 +277,7 @@ hr {
     -ms-border-radius: 20px;
     -o-border-radius: 20px;
 }
+
 @media (max-width: 966px) {
     .no_service {
         font-size: 16px;
@@ -328,14 +320,7 @@ hr {
         width: 250px;
         height: 400px;
     }
-    .fila1 .image3 img {
-        width: 250px;
-        height: 400px;
-    }
-    .fila1 .image4 img {
-        width: 250px;
-        height: 400px;
-    }
+
     .ver_fotos {
         font-size: 16px;
     }
@@ -393,8 +378,8 @@ hr {
     }
 }
 @media (max-width: 576px) {
-    .card{
-       margin-bottom: 20px;
+    .card {
+        margin-bottom: 20px;
     }
     .btn_resena {
         margin-top: 20px !important;
@@ -436,14 +421,7 @@ hr {
         width: 200px;
         height: 300px;
     }
-    .fila1 .image3 img {
-        width: 200px;
-        height: 300px;
-    }
-    .fila1 .image4 img {
-        width: 200px;
-        height: 300px;
-    }
+
     .ver_fotos {
         font-size: 14px;
     }
@@ -490,61 +468,35 @@ hr {
         font-size: 18px;
     }
 }
-@media (min-width: 380px) {
-    .estrellas {
-        font-size: 14px;
+@media (max-width: 380px) {
+    .img_title {
+        margin-left: 5px;
+        margin-bottom: 0px;
     }
-    .horario {
-        font-size: 14px;
-    }
-    .fila1 .image1 img {
-        width: 200px;
-        height: 150px;
-    }
-    .fila1 .image2 img {
-        width: 200px;
-        height: 150px;
-    }
-    .fila1 .image3 img {
-        width: 200px;
-        height: 150px;
-    }
-    .fila1 .image4 img {
-        width: 200px;
-        height: 150px;
-    }
-
-    .descrip_plan_turi {
-        font-size: 16px;
-    }
-    .deatil_description img{
-        width: 50px;
-        height: 50px;
-        object-fit: contain;
-    }
-    .estrellas_resena {
-        font-size: 18px;
-    }
-    .resena {
+    .img_title span {
         font-size: 18px;
     }
 
-    .btn_resena {
-        width: 110px;
-        height: 40px;
-        font-size: 10px;
+    .description_detail_plans {
+        width: 100%;
+        max-width: 100%;
+    }
+    .texto_detail_turismo {
+        width: 80%;
+        max-width: 80%;
     }
 
-    .estrellas_detail_resena {
-        font-size: 18px;
+    .deatil_description {
+        width: 98%;
+        max-width: 98%;
+        margin: auto;
     }
-    .avantar {
-        width: 30px;
-        height: 30px;
-        font-size: 18px;
+    .services {
+        margin-top: 50px;
     }
-    .resena_card {
-        display: flex;
-        justify-content: space-evenly;
+    .fila {
+        display: grid;
+        grid-template-columns: 100%;
+        gap: 2rem;
     }
 }

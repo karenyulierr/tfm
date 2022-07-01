@@ -7,6 +7,10 @@ use App\CategoryTouristSite;
 use App\TouristSite;
 use App\Service;
 use App\Rule;
+use App\Image;
+use App\Review;
+
+
 
 
 
@@ -65,12 +69,34 @@ class CategoryApiController extends Controller
     }
     public function categoryviewdetail(Request $request)
     {
+       
         $touristSite = $this->getTouristSiteDetail($request->_id);
+        $getImagesTotal = $this->getImagesTotal($request->_id);
+        $getReviews = $this->getReviews($request->_id);
         $getRules = $this->getRules($request->_id);
+        $getImages = $this->getImages($request->_id);
         $getServiceTourisSite = $this->getServiceTourisSite($request->_id);
         $category = Category::where('state', 'active')->orderBy('name', 'asc')->get();
 
-        return view('categoryviewdetail', ['category' => $category, 'touristSite' => $touristSite, 'getServiceTourisSite' => $getServiceTourisSite, 'getRules' => $getRules]);
+        return view('categoryviewdetail', ['category' => $category, 'touristSite' => $touristSite, 'getServiceTourisSite' => $getServiceTourisSite, 'getRules' => $getRules, 'getImages' => $getImages, 'getImagesTotal' => $getImagesTotal, 'getReviews' => $getReviews]);
+    }
+    public function getReviews($_id)
+    {
+        $getReviews = Review::where('tourist_sities_id', $_id)->paginate(2);
+
+        return $getReviews;
+    }
+    public function getImages($_id)
+    {
+        $getImages = Image::where(['tourist_sities_id' => $_id, 'state' => 'active'])->Paginate(4);
+
+        return $getImages;
+    }
+    public function getImagesTotal($_id)
+    {
+        $getImages = Image::where(['tourist_sities_id' => $_id, 'state' => 'active'])->orderBy('id', 'asc')->get();
+
+        return $getImages;
     }
     public function getRules($_id)
     {

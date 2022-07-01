@@ -2,10 +2,28 @@
 
 @section('styles')
 <link rel="stylesheet" href="css/categoryviewdetail.css">
+<link rel="stylesheet" href="css/botonWhatsapp.css">
 @endsection
 
 @section('contendido')
 <div class="categoryviewdetail">
+    @if(Session::has('mensaje'))
+    <br><br>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ Session::get('mensaje')}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    @elseif(Session::has('error'))
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{ Session::get('error')}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    @endif
     <div class="row detail_planes_title">
         <div class="img_title">
             <img src="{{asset('soportes/img_main/'. $touristSite[0]->main_image )}}" alt="">
@@ -23,26 +41,80 @@
     <br><br>
     <div class="detail_imagenes">
         <div class="row fila1">
+            @if(count($getImages)>0)
+            @foreach($getImages as $key => $image)
+
+            @if(($image->id % 2)==0)
             <div class=" col image1">
-                <img class="img-fluid" src="img/planes_2.JPG" alt="">
+                <img class="img-fluid" src="{{asset('soportes/img_site/'. $image->name )}}" alt="">
             </div>
-            <div class="fila1 col image2">
-                <img class="img-fluid" src="img/planes_3.JPG" alt="">
+            @else
+            <div class=" col image2">
+                <img class="img-fluid" src="{{asset('soportes/img_site/'. $image->name )}}" alt="">
             </div>
-            <div class=" col image3">
-                <img class="img-fluid" src="img/planes_1.JPG" alt="">
-            </div>
-            <div class="col image4">
-                <img class="img-fluid" src="img/planes_4.JPG" alt="">
-            </div>
+            @endif
+            @endforeach
+
+            @else
+            <p class="no_service">No se han agregado imagenes</p>
+            @endif
+
         </div>
         <br><br>
-        <a href="#" class="ver_fotos">Ver todas las fotos</a>
+        @if(count($getImages)>0)
+        <a href="#" class="ver_fotos" data-toggle="modal" data-target="#exampleModal">Ver todas las fotos</a>
+        @endif
 
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">{{$touristSite[0]->name }}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                                <ol class="carousel-indicators">
+                                    @forelse($getImagesTotal as $key => $images)
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="{{ $key}}" class="active"></li>
+                                    @empty
+                                    @endforelse
+                                </ol>
+                                <div class="carousel-inner">
+                                    @forelse($getImagesTotal as $key => $images)
+                                    <div class="carousel-item  @if($key==0)active @endif">
+                                        <img class="img-fluid" src="{{asset('soportes/img_site/'. $images->name )}}" class="d-block w-100" alt="...">
+
+                                    </div>
+                                    @empty
+
+                                    @endforelse
+                                </div>
+
+                                <button class="carousel-control-prev" type="button" data-target="#carouselExampleIndicators" data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-target="#carouselExampleIndicators" data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <br><br>
     <hr>
     <br><br>
+
+
     <div class="description_detail_plans">
         <div class="deatil_description">
             <div>
@@ -140,10 +212,10 @@
                 <span class="descrip_plan_turi ml-3">Como puedes llegar</span>
             </div>
             <div class="mapa">
-                <iframe  width="100%" height="279px" style="border:0" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB0-LsNwVbOtS8KQ8W__y-cnbEswQe1B6U&q=Space+Needle,Seattle+WA">
+                <iframe width="100%" height="279px" style="border:0" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB0-LsNwVbOtS8KQ8W__y-cnbEswQe1B6U&q=Space+Needle,Seattle+WA">
                 </iframe>
             </div>
-      
+
             <span class=" mt-4 texto_detail_turismo ml-5">Zonas muy tranquilas. </span><br>
             <span class=" texto_detail_turismo ml-5"> Ideal para montar en bicicleta o salir a hacer deporte.</span>
 
@@ -160,12 +232,15 @@
             </div>
             <div class="services">
                 @if(count($getRules)>0)
-                <div class="fila">
-                    @foreach($getRules as $key => $rules)
-                    <div class="box">
-                        {{ $rules->name}}
-                    </div>
-                    @endforeach
+                <div>
+                    <ul class="fila">
+                        @foreach($getRules as $key => $rules)
+                        <div class="box">
+                            <li> {{ $rules->name}} </li>
+
+                        </div>
+                        @endforeach
+                    </ul>
                 </div>
                 @else
                 <div class="fila">
@@ -178,6 +253,8 @@
     <br><br>
     <hr>
     <br><br>
+
+
     <div class="description_detail_plans">
         <div class="deatil_description">
             <div>
@@ -195,12 +272,15 @@
                     </span>
                 </div>
             </div>
+
             <div class="detail_resena">
                 <div class="resena_card row">
+                    @if(count($getRules)>0)
+                    @foreach($getReviews as $key => $reviews)
                     <div class=" card col-12 col-sm-5 col-md-5">
                         <div class="title_card mt-3">
-                            <span class="ml-3 avantar">J</span>
-                            <span class="ml-2">Juan David Ortiz</span>
+                            <span class="ml-3 avantar">{{ucfirst(substr($reviews->name_person,0,1)) }}</span>
+                            <span class="ml-2">{{ $reviews->name_person }}</span>
                         </div>
                         <div class="clasificacion_detail_resena">
                             <span class="">
@@ -212,36 +292,82 @@
                             </span>
                         </div>
                         <div class="m-3">
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <p class="card-text">{{ $reviews->description }}</p>
                         </div>
                     </div>
-                    <div class=" card col-12 col-sm-5 col-md-5">
-                        <div class="title_card mt-3">
-                            <span class="ml-3 avantar">J</span>
-                            <span class="ml-2">Juan David Ortiz</span>
-                        </div>
-                        <div class="clasificacion_detail_resena">
-                            <span class="">
-                                <label class="estrellas_detail_resena" for="radio1">★</label>
-                                <label class="estrellas_detail_resena" for="radio2">★</label>
-                                <label class="estrellas_detail_resena" for="radio3">★</label>
-                                <label class="estrellas_detail_resena" for="radio4">★</label>
-                                <label class="estrellas_detail_resena" for="radio5">★</label>
-                            </span>
-                        </div>
-                        <div class="m-3">
-                            <p class="card-text">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
-                        </div>
-                    </div>
+                    @endforeach
+
+                    @else
+                    <p class="no_service">No se han agregado reseñas</p>
+                    @endif
+
                 </div>
+                <br><br>
+                {{ $getReviews->withQueryString()->links() }}
                 <div class=" mt-5 mr-5 btn_resena_content">
-                    <button type="button" class="btn_resena">Añadir reseña</button>
+                    <button type="button" class="btn_resena" data-toggle="modal" data-target="#exampleModal2">Añadir reseña</button>
+                </div>
+
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Agregar reseña</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="{{ url('reviewCreate') }}" method="post">
+                                    @csrf
+                                    <input type="hidden" name="tourist_sities_id" value="    {{  $touristSite[0]->id}}">
+                                    <div class="form-group">
+                                        <label for="exampleFormControlInput0">Nombre completo</label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput0" name="name_person" placeholder="Juan Camilo Torrez" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleFormControlInput1"> correo electrónico</label>
+                                        <input type="email" class="form-control" id="exampleFormControlInput1" name="email" placeholder="juantorres@example.com" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleFormControlSelect1">Su calificación </label>
+                                        <select class="form-control" id="exampleFormControlSelect1" name="stars" required>
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="exampleFormControlTextarea1">Reseña o comentario</label>
+                                        <textarea class="form-control" id="exampleFormControlTextarea1" name="description" rows="3" required></textarea>
+                                    </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                <input type="submit" class="btn btn-primary" value="Guardar">
+                            </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <br><br>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <a href="https://api.whatsapp.com/send?phone=+57{{ $touristSite[0]->phone  }}&text=Hola, te estas comunicando con {{ $touristSite[0]->name }}, Escríbenos y en pocos minutos respondemos todas tu dudas." class="float" target="_blank">
+        <i class="fa fa-whatsapp my-float"></i>
+    </a>
 </div>
+
+
 @endsection
 
 @section('script')
