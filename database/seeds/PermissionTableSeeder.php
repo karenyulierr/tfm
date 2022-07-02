@@ -57,6 +57,12 @@ class PermissionTableSeeder extends Seeder
         Permission::updateOrCreate([
             'name' => 'Ver reseñas'
         ]);
+        Permission::updateOrCreate([
+            'name' => 'Ver manual administrador'
+        ]);
+        Permission::updateOrCreate([
+            'name' => 'Ver manual cliente'
+        ]);
         $Admin->givePermissionTo(Permission::all());
     }
 }

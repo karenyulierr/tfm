@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\TouristSite;
+use App\User;
 use Illuminate\Http\Request;
 use App\Review;
+use Illuminate\Support\Facades\Auth;
 
 class ReviewController extends Controller
 {
@@ -14,7 +17,22 @@ class ReviewController extends Controller
      */
     public function index()
     {
-        //
+        switch ($_GET['Q']) {
+            case 0:
+                $id = Auth::user()->id;
+                $rol = User::join('model_has_roles', 'model_has_roles.model_id', '=', 'users.id')
+                    ->join('roles', 'roles.id', '=', 'model_has_roles.role_id')
+                    ->where('model_has_roles.model_id',$id)->select('roles.name as rol')->first();
+                if ($rol->rol == 'Administrador') {
+                    $service = TouristSite::orderBy('name', 'ASC')->get();
+                } else {
+                    $service = TouristSite::where([['user_admin', $id],['state','active']])->orderBy('name', 'ASC')->get();
+                }
+                return response()->json($service);
+            case 1:
+                $review = Review::where('tourist_sities_id', $_GET['id'])->orderBy('created_at', 'ASC')->get();
+                return response()->json($review);
+        }
     }
 
     /**
