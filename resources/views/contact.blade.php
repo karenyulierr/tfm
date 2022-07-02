@@ -6,24 +6,30 @@
 
 @section('contendido')
 <div class="contacto">
+    @if(Session::has('mensaje'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ Session::get('mensaje')}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    @endif
     <div class="row contenido_contact">
         <div class="col-6 formulario">
             <div class="text_contact">
                 <p class="dudas">si tienes dudas no dudes</p>
                 <p class="en_contact mb-5">En contactarnos</p>
             </div>
-            <form class="form_contac ml-5 mr-5">
+            <form action={{route('contact-us')}} method="POST" class="form_contac ml-5 mr-5">
+                @csrf
                 <div class="form-group">
-                    <input type="text" class="form-control" id="" placeholder="Nombre completo">
+                    <input type="text" class="form-control" id="" name='name' placeholder="Nombre completo">
                 </div>
                 <div class="form-group">
-                    <input type="email" class="form-control" id="" placeholder="Correo electrónico">
+                    <input type="email" class="form-control" id="" name="email" placeholder="Correo electrónico">
                 </div>
                 <div class="form-group">
-                    <input type="tel" class="form-control" id="" placeholder="Teléfono">
-                </div>
-                <div class="form-group">
-                    <textarea class="form-control" id="" rows="5" placeholder="Mensaje"></textarea>
+                    <textarea class="form-control" id="" rows="5" placeholder="Mensaje" name="msg"></textarea>
                 </div>
                 <button type="submit" class="btn btn_contact shadow">
                     Enviar

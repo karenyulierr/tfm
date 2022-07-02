@@ -61,7 +61,7 @@
                         <a style="color: #fff;  font-weight: 500;font-size: 20px;" class="nav-link" href="/tourist_plans">Planes turísticos</a>
                     </li>
                     <li class="nav-item">
-                        <a style="color: #fff;  font-weight: 500;font-size: 20px;" class="nav-link" href="/contact">Contactanos</a>
+                        <a style="color: #fff;  font-weight: 500;font-size: 20px;" class="nav-link" href="/contact">Contáctanos</a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('login') }}" class="nav-link" style="color: #fff;  font-weight: 500;font-size: 20px;">
