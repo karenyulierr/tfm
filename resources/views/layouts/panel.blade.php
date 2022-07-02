@@ -23,7 +23,6 @@
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/atlantis.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/demo.css') }}">
-    <link rel="stylesheet" href="{{ asset('leaflet/leaflet.css') }}">
 
     <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -191,9 +190,25 @@
                         @endcan
                         @can('Ver reseñas')
                             <li class="nav-item">
-                                <a href="/" >
+                                <a href="/review" >
                                     <i class="fas fa-check-circle clr-font"></i>
                                     <span class="clr-font">Reseñas</span>
+                                </a>
+                            </li>
+                        @endcan
+                        @can('Ver manual administrador')
+                            <li class="nav-item">
+                                <a href="/" >
+                                    <i class="fas fa-book clr-font"></i>
+                                    <span class="clr-font">Manual administrador</span>
+                                </a>
+                            </li>
+                        @endcan
+                        @can('Ver manual cliente')
+                            <li class="nav-item">
+                                <a href="/" >
+                                    <i class="fas fa-book clr-font"></i>
+                                    <span class="clr-font">Manual cliente</span>
                                 </a>
                             </li>
                         @endcan
@@ -228,7 +243,6 @@
 <script src="{{ asset('js/plugin/jquery-scrollbar/jquery.scrollbar.min.js') }}"></script>
 <!-- Datatables -->
 <script src="{{ asset('js/plugin/datatables/datatables.min.js') }}"></script>
-<script src="{{ asset('leaflet/leaflet.js') }}"></script>
 
 <script src="{{ asset('vendors/bootstrap-fileinput/js/plugins/piexif.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('vendors/bootstrap-fileinput/js/plugins/sortable.min.js') }}" type="text/javascript"></script>

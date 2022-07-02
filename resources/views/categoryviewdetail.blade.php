@@ -346,7 +346,7 @@
                                         <label for="exampleFormControlTextarea1">Reseña o comentario</label>
                                         <textarea class="form-control" id="exampleFormControlTextarea1" name="description" rows="3" required></textarea>
                                     </div>
-
+                                    <input type="hidden" name="created_at" value="{{ date("Y-m-d H:i:s") }}">
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>

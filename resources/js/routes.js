@@ -13,6 +13,7 @@ import ServiceSite from "./components/Site/ServiceSite";
 import ImgSite from "./components/Site/ImgSite";
 import Plan from "./components/Plan/Plan";
 import ImgPlan from "./components/Plan/ImgPlan";
+import Review from "./components/Review/Review";
 
 Vue.use(VueRouter);
 
@@ -31,6 +32,7 @@ const router = new VueRouter({
         { path: '/imageSite', name: 'imageSite', component: ImgSite },
         { path: '/plans', name: 'plans', component: Plan },
         { path: '/imagePlan', name: 'imagePlan', component: ImgPlan },
+        { path: '/review', name: 'review', component: Review },
     ]
 });
 

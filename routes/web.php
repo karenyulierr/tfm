@@ -81,4 +81,7 @@ Route::middleware(['auth'])->group(function () {
     //Imagenes plan
     Route::view('/imagePlan', 'home')->name('imagePlan');
     Route::resource('/image-plan-resource','ImgPlanController');
+    //Reseñas
+    Route::view('/review', 'home')->name('review');
+    Route::resource('/review-resource','ReviewController');
 });
