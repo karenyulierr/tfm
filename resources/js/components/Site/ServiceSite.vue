@@ -285,7 +285,7 @@ name: "ServiceSite",
                     this.price = num;
                 }
             }else{
-                alert('Solo se permiten números');
+                this.messageAlert('warning', 'Atención!', 'Solo se permiten números');
                 if (index == 1){
                     this.price = this.price.replace(/[^\d\.]*/g,'');
                 }

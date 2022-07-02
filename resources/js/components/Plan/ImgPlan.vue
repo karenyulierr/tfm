@@ -10,12 +10,12 @@
                                 <template>
                                     <div class="row">
                                         <div class="pull-left col-2" v-if="viewImg">
-                                            <button class="btn" style="background: #555555; color: white" @click="removeLocal(), getImgSite()"><i class="fa fa-arrow-left"></i> Regresar </button>
+                                            <button class="btn" style="background: #555555; color: white" @click="removeLocal(), getImgPlan()"><i class="fa fa-arrow-left"></i> Regresar </button>
                                         </div>
                                         <div class="pull-left col-2" v-if="!viewImg">
                                             <button class="btn" style="background: #555555; color: white" @click="viewImg=true"><i class="fa fa-arrow-left"></i> Regresar </button>
                                         </div>
-                                        <h2 class="clr-font justify-content-center col-7"><b>Imagenes del sitio {{name_site}}</b></h2>
+                                        <h2 class="clr-font justify-content-center col-7"><b>Imagenes de {{name_plan}}</b></h2>
                                         <div class="pull-right col-3" v-if="viewImg">
                                             <button class="btn" style="background: #03B8AD; color: white" @click="createFile()"> Agregar imagenes <i class="fa fa-plus"></i></button>
                                         </div>
@@ -85,11 +85,11 @@ import axios from "axios";
 import VueBootstrap4Table from "vue-bootstrap4-table";
 
 export default {
-name: "ImgSite",
+    name: "ImgPlan",
     mounted() {
-        this.site_id = JSON.parse(localStorage.getItem('site_id'));
-        this.name_site = JSON.parse(localStorage.getItem('name_site'));
-        this.getImgSite();
+        this.plan_id = JSON.parse(localStorage.getItem('plan_id'));
+        this.name_plan = JSON.parse(localStorage.getItem('name_plan'));
+        this.getImgPlan();
     },
     data: function () {
         return {
@@ -111,9 +111,9 @@ name: "ImgSite",
             viewImg: true,
             viewButton: true,
             loadCreate: true,
-            name_site:'',
+            name_plan:'',
             name_rule:'',
-            site_id:'',
+            plan_id:'',
             img_id:'',
             boxTwo: '',
             band:'create',
@@ -122,12 +122,12 @@ name: "ImgSite",
         }
     },
     methods: {
-        getImgSite: function () {
+        getImgPlan: function () {
             this.rows = [];
             let count = 1;
             let checkboxes_aux = [];
             let category_aux = [];
-            axios.get('image-site-resource?Q=0&site_id=' + this.site_id).then(response => {
+            axios.get('image-plan-resource?Q=0&plan_id=' + this.plan_id).then(response => {
                 let data = response.data;
                 for (let i in data) {
                     let status_aux = response.data[i].state == 'active' ? 'activo' : 'inactivo';
@@ -155,13 +155,13 @@ name: "ImgSite",
             for (let i in this.file_img) {
                 formData.append('file[' + i + ']', this.file_img[i]);
             }
-            formData.append('site_id', this.site_id);
-            //formData.append('name', this.file_img);
+            formData.append('plan_id', this.plan_id);
             const config = {
                 headers: {'content-type': 'multipart/form-data'}
             };
-            axios.post('/image-site-resource', formData, config).then(response => {
-                this.getImgSite();
+            axios.post('/image-plan-resource', formData, config).then(response => {
+                this.file_img=[];
+                this.getImgPlan();
                 this.messageAlert('success', 'Correcto!', 'Imagenes guardadas exitosamente!');
                 this.loadCreate = true;
                 this.viewImg=true;
@@ -172,7 +172,7 @@ name: "ImgSite",
             });
         },
         openImg: function(name){
-            window.open('/soportes/img_site/'+name);
+            window.open('/soportes/img_plan/'+name);
         },
         showMsgBoxTwo() {
             this.boxTwo = ''
@@ -198,8 +198,8 @@ name: "ImgSite",
                 })
         },
         deleteImg: function() {
-            axios.delete('/image-site-resource/' + this.img_id).then((response) => {
-                this.getImgSite();
+            axios.delete('/image-plan-resource/' + this.img_id).then((response) => {
+                this.getImgPlan();
                 this.messageAlert('success', 'Correcto!', 'Imagen eliminada exitosamente.');
             }).catch((error) => {
                 console.log(error.response);
@@ -210,19 +210,19 @@ name: "ImgSite",
                 id: id,
                 state: state
             };
-            axios.put('/image-site-resource/'+id, formData).then((response) => {
+            axios.put('/image-plan-resource/'+id, formData).then((response) => {
                 //Success
                 this.messageAlert('success', 'Correcto!', 'Estado actualizado');
-                this.getImgSite();
+                this.getImgPlan();
 
             }).catch((error) => {
                 console.log(error.response);
             });
         },
         removeLocal: function () {
-            localStorage.removeItem('site_id');
-            localStorage.removeItem('name_site');
-            this.$router.push({path: '/home'});
+            localStorage.removeItem('plan_id');
+            localStorage.removeItem('name_plan');
+            this.$router.push({path: '/plans'});
         },
         changePhoto: function(e) {
             for (let i in e.target.files){
@@ -230,9 +230,9 @@ name: "ImgSite",
             }
         },
         createFile:function (){
-            this.file_img=[];
             this.viewImg=false;
             this.viewButton=false;
+            this.file_img=[];
             setTimeout(function() {
                 $(".fileinputImage").fileinput({
                     'overwriteInitial': false,

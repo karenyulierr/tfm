@@ -183,9 +183,17 @@
                         @endcan
                         @can('Ver planes turísticos')
                             <li class="nav-item">
-                                <a href="/" >
+                                <a href="/plans" >
                                     <i class="fas fa-route clr-font"></i>
                                     <span class="clr-font">Planes turísticos</span>
+                                </a>
+                            </li>
+                        @endcan
+                        @can('Ver reseñas')
+                            <li class="nav-item">
+                                <a href="/" >
+                                    <i class="fas fa-check-circle clr-font"></i>
+                                    <span class="clr-font">Reseñas</span>
                                 </a>
                             </li>
                         @endcan

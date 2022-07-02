@@ -10,7 +10,7 @@ class PlanImage extends Model
     protected $fillable = [
         'name',
         'state',
-        'tourist_sities_id',
+        'plan_tourist_id',
         'user_id',
     ];
 }
