@@ -231,4 +231,5 @@ return [
     ],
     'img_main' => getcwd().env('PATH_PHOTO_MAIN'),
     'img_site' => getcwd().env('PATH_PHOTO_SITE'),
+    'img_plan' => getcwd().env('PATH_PHOTO_PLAN'),
 ];
