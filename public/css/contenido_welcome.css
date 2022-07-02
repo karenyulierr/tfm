@@ -1,0 +1,509 @@
+.contenido_welcome {
+    width: 100%;
+    background: #fff !important;
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+}
+.color_gris {
+    background: #f7f7f7 !important;
+    width: 100%;
+}
+.card_principal {
+    border: 0px !important;
+    width: 80%;
+    max-width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f7f7f7 !important;
+}
+.primer {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 27px;
+    /* identical to box height */
+    text-align: center;
+    letter-spacing: 0.175em;
+    text-transform: uppercase;
+
+    color: #01c0b5;
+}
+.segundo {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 63px;
+    text-align: center;
+    color: #1e1e1e;
+}
+.card_content {
+    width: 368px;
+    height: 479px;
+}
+.card {
+    border-radius: 1.25rem !important;
+    -webkit-border-radius: 1.25rem !important;
+    -ms-border-radius: 1.25rem !important;
+    -o-border-radius: 1.25rem !important;
+}
+.card_content > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1.25rem !important;
+    -webkit-border-radius: 1.25rem !important;
+    -moz-border-radius: 1.25rem !important;
+    -ms-border-radius: 1.25rem !important;
+    -o-border-radius: 1.25rem !important;
+}
+.text_card {
+    width: 334px;
+    height: auto;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.64);
+    backdrop-filter: blur(24px);
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.card-bajar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.text_card img {
+    width: 55px;
+    height: 55px;
+    background: #03b8ad;
+    border-radius: 100%;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    -o-border-radius: 100%;
+}
+.text_card p {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 160%;
+    /* or 22px */
+
+    text-align: center;
+
+    color: #1e1e1e;
+
+    opacity: 0.8;
+}
+.text_card .title {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 27px;
+    /* identical to box height */
+
+    text-align: center;
+    text-transform: capitalize;
+
+    color: #1e1e1e;
+}
+
+.reseñas {
+    border: 0px !important;
+    width: 80%;
+    max-width: 80%;
+    margin: auto;
+    margin-top: 100px;
+}
+.conten_reseñas {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+}
+.title_reseñas {
+    text-align: justify;
+    margin: auto;
+}
+.uno {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 27px;
+    /* identical to box height */
+
+    text-align: center;
+    letter-spacing: 0.175em;
+    text-transform: uppercase;
+
+    color: #01c0b5;
+}
+.dos {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 44px;
+
+    color: #1e1e1e;
+}
+.reseñas_cont {
+    text-align: justify;
+    padding-right: 20px !important;
+}
+.name {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+    /* identical to box height */
+
+    color: #1e1e1e;
+
+    opacity: 0.9;
+}
+.sitio {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+    /* identical to box height */
+
+    text-decoration-line: underline;
+
+    color: #00abe1;
+
+    opacity: 0.9;
+}
+.resena_text {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 185%;
+    /* or 33px */
+
+    color: #1e1e1e;
+
+    opacity: 0.8;
+}
+.ver_fotos {
+    font-size: 18px;
+    color: #00d6c9;
+    text-decoration: underline;
+}
+.ver_fotos:hover {
+    font-size: 18px;
+    color: #00d6c9;
+    text-decoration: underline;
+}
+.avantar {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    -o-border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+    color: #00d6c9;
+    background-color: #dedcdc;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%;
+}
+.imagenes {
+    border: 0px !important;
+    width: 80%;
+    max-width: 80%;
+    margin: auto;
+    margin-top: 150px;
+    background: #f7f7f7 !important;
+}
+.image_uno {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 27px;
+    /* identical to box height */
+
+    letter-spacing: 0.175em;
+    text-transform: uppercase;
+
+    color: #03b8ad;
+}
+.image_dos {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 50px;
+    /* identical to box height */
+
+    letter-spacing: -0.06em;
+    text-transform: capitalize;
+
+    color: #1e1e1e;
+}
+.image_1 img {
+    width: 1133px;
+    height: 325px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    object-fit: cover;
+}
+.image_2 img {
+    width: 100%;
+    height: 325px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+.image_3 img {
+    width: 258px;
+    height: 390px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+@media (max-width: 1358px) {
+    .card_content {
+        width: 300px;
+        height: 430px;
+    }
+    .reseñas {
+        width: 95%;
+        max-width: 95%;
+    }
+}
+@media (max-width: 1109px) {
+    .card_principal {
+        width: 100%;
+        max-width: 100%;
+    }
+    .text_card .title {
+        font-size: 15px;
+    }
+    .card_content {
+        width: 200px;
+        height: 350px;
+    }
+    .reseñas {
+        width: 95%;
+        max-width: 95%;
+    }
+    .resena_text {
+        font-size: 15px;
+    }
+    .name {
+        font-size: 20px;
+    }
+    .sitio {
+        font-size: 20px;
+    }
+    .image_3 img {
+        width: 258px;
+        height: 250px;
+    }
+}
+@media (max-width: 843px) {
+    .uno {
+        font-size: 15px;
+    }
+    .dos {
+        font-size: 30px;
+    }
+}
+@media (max-width: 767px) {
+    .uno {
+        font-size: 18px;
+    }
+    .dos {
+        font-size: 42px;
+    }
+    .card_content {
+        width: 368px;
+        height: 479px;
+    }
+    .reseñas {
+        width: 98%;
+        max-width: 98%;
+    }
+    .resena_text {
+        font-size: 18px;
+    }
+    .name {
+        font-size: 24px;
+    }
+    .sitio {
+        font-size: 24px;
+    }
+    .image_1 img {
+        height: 200px;
+    }
+    .image_2 img {
+        height: 200px;
+    }
+    .image_3 img {
+        width: 150px;
+        height: 180px;
+    }
+    .primer {
+        font-size: 16px;
+    }
+    .segundo {
+        font-size: 30px;
+    }
+    .image_uno {
+        font-size: 16px;
+    }
+
+    .image_dos {
+        font-size: 30px;
+    }
+    .row.centar_card {
+        margin: auto;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        flex-direction: column !important;
+    }
+    .row.conten_reseñas {
+        margin: auto;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        flex-direction: column !important;
+    }
+    .reseñas_cont {
+        text-align: center;
+        padding-right: 0px !important;
+    }
+    .avantar {
+        width: 50px;
+        height: 50px;
+        display: inline-block;
+        text-align: center;
+    }
+    .title_reseñas {
+        text-align: center;
+        margin: auto;
+    }
+}
+@media (max-width: 517px) {
+    .uno {
+        font-size: 15px;
+    }
+    .dos {
+        font-size: 28px;
+    }
+    .card_content {
+        width: 320px;
+        height: 450px;
+    }
+    .resena_text {
+        font-size: 15px;
+    }
+    .name {
+        font-size: 18px;
+    }
+    .sitio {
+        font-size: 18px;
+    }
+    .image_1 img {
+        height: 150px;
+    }
+    .image_2 img {
+        height: 150px;
+    }
+    .image_3 img {
+        width: 100px;
+        height: 150px;
+    }
+    .primer {
+        font-size: 15px;
+    }
+    .segundo {
+        font-size: 28px;
+    }
+    .image_uno {
+        font-size: 15px;
+    }
+
+    .image_dos {
+        font-size: 28px;
+    }
+    .row.centar_card {
+        margin: auto;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        flex-direction: column !important;
+    }
+    .row.conten_reseñas {
+        margin: auto;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        flex-direction: column !important;
+    }
+    .reseñas_cont {
+        text-align: center;
+        padding-right: 0px !important;
+    }
+    .avantar {
+        width: 50px;
+        height: 50px;
+        display: inline-block;
+        text-align: center;
+    }
+    .title_reseñas {
+        text-align: center;
+        margin: auto;
+    }
+    .text {
+        font-size: 15px !important;
+    }
+    .que_enamoran {
+        font-size: 28px !important;
+    }
+    .lugares {
+        font-size: 28px !important;
+    }
+}
+
+@media (max-width: 339px) {
+    .image_1 img {
+        height: 100px;
+    }
+    .image_2 img {
+        height: 100px;
+    }
+    .image_3 img {
+        width: 50px;
+        height: 100px;
+    }
+    .card_content {
+        width: 300px;
+        height: 400px;
+    }
+}

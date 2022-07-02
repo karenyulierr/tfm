@@ -10,11 +10,6 @@ use App\Rule;
 use App\Image;
 use App\Review;
 
-
-
-
-
-
 use Illuminate\Http\Request;
 
 class CategoryApiController extends Controller
@@ -27,8 +22,27 @@ class CategoryApiController extends Controller
     public function index()
     {
         $category = Category::where('state', 'active')->orderBy('name', 'asc')->get();
-        return view('welcome', compact('category'));
+        $getImagesWelcome = $this->getImagesWelcome();
+        $getReviews = $this->getReviewsWelcome();
+        return view('welcome', ['category' => $category, 'getReviews' => $getReviews, 'getImagesWelcome' => $getImagesWelcome]);
     }
+
+    public function getReviewsWelcome()
+    {
+        $getReviews = Review::join('tourist_sites', 'tourist_sites.id', '=', 'reviews.tourist_sities_id')->inRandomOrder()
+            ->limit(3)
+            ->get();
+        return $getReviews;
+    }
+    public function getImagesWelcome()
+    {
+        $getImages = Image::join('tourist_sites', 'tourist_sites.id', '=', 'images.tourist_sities_id')->where(['images.state'=>'active','tourist_sites.state'=>'active'])->inRandomOrder()
+            ->limit(8)
+            ->get();
+
+        return $getImages;
+    }
+
     public function contact()
     {
         $category = Category::where('state', 'active')->orderBy('name', 'asc')->get();
@@ -69,7 +83,7 @@ class CategoryApiController extends Controller
     }
     public function categoryviewdetail(Request $request)
     {
-       
+
         $touristSite = $this->getTouristSiteDetail($request->_id);
         $getImagesTotal = $this->getImagesTotal($request->_id);
         $getReviews = $this->getReviews($request->_id);

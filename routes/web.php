@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use app\Http\Controllers\ReviewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +29,9 @@ Route::get('/categoryview', 'CategoryApiController@categoryview')->name('categor
 Route::get('/categoryviewdetail', 'CategoryApiController@categoryviewdetail')->name('categoryviewdetail');
 
 Route::post('/reviewCreate', 'ReviewController@store')->name('reviewCreate');
+
+Route::post('/contact-us', 'MailController@contact')->name('contact-us');
+
 
 
 /**Fin inicio */
