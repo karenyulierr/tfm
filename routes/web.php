@@ -77,4 +77,8 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('/image-site-resource', 'ImgSiteController');
     //Planes turísticos
     Route::view('/plans', 'home')->name('plans');
+    Route::resource('/plan-resource','PlansController');
+    //Imagenes plan
+    Route::view('/imagePlan', 'home')->name('imagePlan');
+    Route::resource('/image-plan-resource','ImgPlanController');
 });
