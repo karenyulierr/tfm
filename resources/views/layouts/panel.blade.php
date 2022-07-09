@@ -199,7 +199,7 @@
                         @endcan
                         @can('Ver manual administrador')
                             <li class="nav-item">
-                                <a href="/" >
+                                <a href="/soportes/manual_administrador_turiapp.pdf" >
                                     <i class="fas fa-book clr-font"></i>
                                     <span class="clr-font">Manual administrador</span>
                                 </a>
@@ -207,7 +207,7 @@
                         @endcan
                         @can('Ver manual cliente')
                             <li class="nav-item">
-                                <a href="/" >
+                                <a href="/soportes/manual_cliente_turiapp.pdf" >
                                     <i class="fas fa-book clr-font"></i>
                                     <span class="clr-font">Manual cliente</span>
                                 </a>
