@@ -123,7 +123,7 @@
             </div>
 
             <p class=" texto_detail_turismo ml-5">{{ $touristSite[0]->description }}</p>
-            <a href="#" class="ver_fotos ml-5">Ver más</a>
+            {{-- <a href="#" class="ver_fotos ml-5">Ver más</a> --}}
         </div>
 
 
@@ -211,10 +211,8 @@
                 <img src="img/ubicacion.png" alt="">
                 <span class="descrip_plan_turi ml-3">Como puedes llegar</span>
             </div>
-            <div class="mapa">
-                <iframe width="100%" height="279px" style="border:0" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB0-LsNwVbOtS8KQ8W__y-cnbEswQe1B6U&q=Space+Needle,Seattle+WA">
-                </iframe>
-            </div>
+
+            <div id="map"> </div>
 
             <span class=" mt-4 texto_detail_turismo ml-5">Zonas muy tranquilas. </span><br>
             <span class=" texto_detail_turismo ml-5"> Ideal para montar en bicicleta o salir a hacer deporte.</span>
@@ -332,7 +330,7 @@
                                         <input type="email" class="form-control" id="exampleFormControlInput1" name="email" placeholder="juantorres@example.com" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleFormControlSelect1">Su calificación </label>
+                                        <label for="exampleFormControlSelect1">Tu calificación </label>
                                         <select class="form-control" id="exampleFormControlSelect1" name="stars" required>
                                             <option>1</option>
                                             <option>2</option>
@@ -368,8 +366,41 @@
 </div>
 
 
+
+
 @endsection
 
 @section('script')
+{{-- <script type="module" src="js/maps_api.ts"></script> --}}
+<script type="module">
+    let map;
+    let latitude={!! $touristSite[0]->latitude !!}
+    let longitude={!! $touristSite[0]->longitude !!}
+    
+function initMap() {
+  
+  let point = { lat:  latitude, lng: longitude  };
+
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: point,
+    zoom: 18,
+    
+  });
+
+  const marker = new google.maps.Marker({ map, position: point });
+
+  marker.addListener("click", () => {
+    infowindow.open(map, marker);
+  });
+}
+
+window.initMap = initMap;
+    
+    </script>
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0-LsNwVbOtS8KQ8W__y-cnbEswQe1B6U&callback=initMap&v=weekly" defer></script>
+
+
 
 @endsection

@@ -22,6 +22,7 @@ Route::get('/', function () {
 Route::get('/', 'CategoryApiController@index')->name('welcome');
 Route::get('/contact', 'CategoryApiController@contact')->name('contact');
 Route::get('/meet_rivera', 'CategoryApiController@meet_rivera')->name('meet_rivera');
+Route::get('/footer', 'CategoryApiController@footer')->name('footer');
 Route::get('/tourist_plans', 'CategoryApiController@tourist_plans')->name('tourist_plans');
 Route::get('/detail_plans', 'CategoryApiController@detail_plans')->name('detail_plans');
 Route::get('/categoryview', 'CategoryApiController@categoryview')->name('categoryview');

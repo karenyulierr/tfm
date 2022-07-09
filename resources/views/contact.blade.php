@@ -18,18 +18,18 @@
         <div class="col-6 formulario">
             <div class="text_contact">
                 <p class="dudas">si tienes dudas no dudes</p>
-                <p class="en_contact mb-5">En contactarnos</p>
+                <p class="en_contact mb-5">En comunicarte</p>
             </div>
             <form action={{route('contact-us')}} method="POST" class="form_contac ml-5 mr-5">
                 @csrf
                 <div class="form-group">
-                    <input type="text" class="form-control" id="" name='name' placeholder="Nombre completo">
+                    <input type="text" class="form-control" id="" name='name' placeholder="Nombre completo" required>
                 </div>
                 <div class="form-group">
-                    <input type="email" class="form-control" id="" name="email" placeholder="Correo electrónico">
+                    <input type="email" class="form-control" id="" name="email" placeholder="Correo electrónico" required>
                 </div>
                 <div class="form-group">
-                    <textarea class="form-control" id="" rows="5" placeholder="Mensaje" name="msg"></textarea>
+                    <textarea class="form-control" id="" rows="5" placeholder="Mensaje" name="msg" required></textarea>
                 </div>
                 <button type="submit" class="btn btn_contact shadow">
                     Enviar

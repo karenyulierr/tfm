@@ -8,6 +8,7 @@
     <!-- Fonts and icons -->
     <script src="{{ asset('js/plugin/webfont/webfont.min.js') }}"></script>
     <link rel="shortcut icon" href="{{ asset('img/logo.png') }}">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script>
         WebFont.load({
             google: {"families":["Lato:300,400,700,900"]},

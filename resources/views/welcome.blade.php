@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <link rel="shortcut icon" href="{{ asset('img/logo.png') }}">
     <title>TuriApp
     </title>
 
@@ -83,7 +83,7 @@
             <p class="lugares">Lugares</p>
             <p class="que_enamoran">Que Enamoran</p>
             <p class="text">Explora la magia y la belleza que ofrecen cada</p>
-            <p class="text">rincon de nuestros paisajes</p>
+            <p class="text">rincón de nuestros paisajes</p>
         </div>
     </header>
 
@@ -95,7 +95,7 @@
                 <br><br><br>
                 <br><br><br>
                 <p class="primer">Te una experiencia </p>
-                <p class="segundo">Unica con nuestros destinos </p>
+                <p class="segundo">Única con nuestros destinos </p>
             </div>
 
             <div class=" card card_principal">
