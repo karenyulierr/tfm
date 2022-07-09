@@ -500,3 +500,9 @@ hr {
         gap: 2rem;
     }
 }
+
+/*MAPA*/
+
+#map {
+    height: 300px !important;
+  }

@@ -9,6 +9,9 @@ use App\Service;
 use App\Rule;
 use App\Image;
 use App\Review;
+use App\PlanTourist;
+use App\PlanImage;
+
 
 use Illuminate\Http\Request;
 
@@ -36,7 +39,7 @@ class CategoryApiController extends Controller
     }
     public function getImagesWelcome()
     {
-        $getImages = Image::join('tourist_sites', 'tourist_sites.id', '=', 'images.tourist_sities_id')->where(['images.state'=>'active','tourist_sites.state'=>'active'])->inRandomOrder()
+        $getImages = Image::join('tourist_sites', 'tourist_sites.id', '=', 'images.tourist_sities_id')->where(['images.state' => 'active', 'tourist_sites.state' => 'active'])->inRandomOrder()
             ->limit(8)
             ->get();
 
@@ -53,15 +56,46 @@ class CategoryApiController extends Controller
         $category = Category::where('state', 'active')->orderBy('name', 'asc')->get();
         return view('meet_rivera', compact('category'));
     }
+    public function footer()
+    {
+        $category = Category::where('state', 'active')->orderBy('name', 'asc')->get();
+        return view('footer', compact('category'));
+    }
     public function tourist_plans()
     {
         $category = Category::where('state', 'active')->orderBy('name', 'asc')->get();
-        return view('tourist_plans', compact('category'));
+        $plans = $this->plans();
+        return view('tourist_plans', ['category' => $category, 'plans' => $plans]);
     }
-    public function detail_plans()
+    public function plans()
     {
+        $PlanTourist = PlanTourist::where('state', 'active')->orderBy('id', 'asc')->paginate(4);
+        return $PlanTourist;
+    }
+    public function detail_plans(Request $request)
+    {
+        $getImagesTotalPlan = $this->getImagesTotalPlan($request->_id);
+        $getImagesPlan = $this->getImagesPlan($request->_id);
+        $plan_info = $this->plan_info($request->_id);
         $category = Category::where('state', 'active')->orderBy('name', 'asc')->get();
-        return view('detail_plans', compact('category'));
+        return view('detail_plans', ['category' => $category, 'plan_info' => $plan_info, 'getImagesPlan' => $getImagesPlan,'getImagesTotalPlan'=>$getImagesTotalPlan]);
+    }
+    public function plan_info($id)
+    {
+        $plan_info = PlanTourist::where(['id' => $id, 'state' => 'active'])->get();
+        return $plan_info;
+    }
+    public function getImagesPlan($_id)
+    {
+        $getImagesPlan = PlanImage::where(['plan_tourist_id' => $_id, 'state' => 'active'])->inRandomOrder()->Paginate(7);
+
+        return $getImagesPlan;
+    }
+    public function getImagesTotalPlan($_id)
+    {
+        $getImagesTotalPlan = PlanImage::where(['plan_tourist_id' => $_id, 'state' => 'active'])->orderBy('id', 'asc')->get();
+
+        return $getImagesTotalPlan;
     }
 
     public function categoryview(Request $request)

@@ -7,6 +7,15 @@
     max-width: 100%;
     margin-bottom: 50px;
 }
+.no_service {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 185%;
+    color: #1e1e1e;
+    opacity: 0.8;
+}
 .primer_card {
     width: 80%;
 }
@@ -22,6 +31,7 @@
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
+    object-fit: cover;
 }
 .card {
     border: 0px;
