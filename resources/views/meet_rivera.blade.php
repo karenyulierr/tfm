@@ -19,7 +19,7 @@
             <div class="div_1">
 
             </div>
-            <img class="" src="img/conocearivera2.jpg" alt="">
+            <img class="" src="img/conocearivera2.jpg" alt="Imagen de rivera">
 
             <div class="div_2">
 
@@ -27,7 +27,7 @@
         </div>
         <div class="col-6 ">
             <p>
-                <span class="con mr-2">con</span> <img src="img/logo.png" alt="">
+                <span class="con mr-2">con</span> <img src="img/logo.png" alt="Imagen de rivera">
             </p>
             <div class="text_con_turi">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, tenetur. Quo neque atque quae ad dolorem quas magni aliquid delectus, harum, eos expedita voluptates perferendis ex itaque iste mollitia vero?

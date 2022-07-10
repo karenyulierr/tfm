@@ -12,7 +12,7 @@
     <div class="card primer_card mt-5 mb-5">
         <div class="row">
             <div class="col-md-3 col-sm-12 image_card">
-                <img src="{{asset('soportes/img_main/'. $value->main_image )}}" alt="" class="img-fluid">
+                <img src="{{asset('soportes/img_main/'. $value->main_image )}}" alt="{{  $value->name  }}" class="img-fluid">
             </div>
             <div class=" col-md-6 col-sm-12 card-body">
                 <span class="disponible">Disponible</span>

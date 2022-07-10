@@ -9,7 +9,7 @@
 <div class="detail_planes">
     <div class="row detail_planes_title">
         <div class="img_title">
-            <img src="{{asset('soportes/img_main/'. $plan_info[0]->main_image )}}" alt="" class="img-fluid">
+            <img src="{{asset('soportes/img_main/'. $plan_info[0]->main_image )}}" alt="{{ $plan_info[0]->name }}" class="img-fluid">
             <span>{{ $plan_info[0]->name }}</span>
         </div>
     </div>
@@ -33,31 +33,31 @@
         @if(count($getImagesPlan)>0)
         <div class="row fila1">
             <div class=" col-4 image1">
-                <img class="img-fluid" src="{{asset('soportes/img_plan/'. $getImagesPlan[0]->name )}}" alt="">
+                <img class="img-fluid" src="{{asset('soportes/img_plan/'. $getImagesPlan[0]->name )}}" alt="{{ $getImagesPlan[0]->name }}">
             </div>
             <div class="fila1 col-8 image2">
-                <img class="img-fluid" src="{{asset('soportes/img_plan/'. $getImagesPlan[1]->name )}}" alt="">
+                <img class="img-fluid" src="{{asset('soportes/img_plan/'. $getImagesPlan[1]->name )}}" alt="{{ $getImagesPlan[1]->name }}">
             </div>
         </div>
         <br>
         <div class="row fila2">
             <div class=" col-4 image1">
-                <img class="img-fluid" src="{{asset('soportes/img_plan/'. $getImagesPlan[2]->name )}}" alt="">
+                <img class="img-fluid" src="{{asset('soportes/img_plan/'. $getImagesPlan[2]->name )}}" alt="{{ $getImagesPlan[2]->name }}">
             </div>
             <div class=" col-4 image2">
-                <img class="img-fluid" src="{{asset('soportes/img_plan/'. $getImagesPlan[3]->name )}}" alt="">
+                <img class="img-fluid" src="{{asset('soportes/img_plan/'. $getImagesPlan[3]->name )}}" alt="{{ $getImagesPlan[3]->name }}">
             </div>
             <div class=" col-4 image3">
-                <img class="img-fluid" src="{{asset('soportes/img_plan/'. $getImagesPlan[4]->name )}}" alt="">
+                <img class="img-fluid" src="{{asset('soportes/img_plan/'. $getImagesPlan[4]->name )}}" alt="{{ $getImagesPlan[4]->name }}">
             </div>
         </div>
         <br>
         <div class="row fila3">
             <div class=" col-4 image1">
-                <img class="img-fluid" src="{{asset('soportes/img_plan/'. $getImagesPlan[5]->name )}}" alt="">
+                <img class="img-fluid" src="{{asset('soportes/img_plan/'. $getImagesPlan[5]->name )}}" alt="{{ $getImagesPlan[5]->name }}">
             </div>
             <div class="col-8 image2">
-                <img class="img-fluid" src="{{asset('soportes/img_plan/'. $getImagesPlan[6]->name )}}" alt="">
+                <img class="img-fluid" src="{{asset('soportes/img_plan/'. $getImagesPlan[6]->name )}}" alt="{{ $getImagesPlan[6]->name }}">
             </div>
         </div>
         <br><br>
@@ -90,7 +90,7 @@
                             <div class="carousel-inner">
                                 @forelse($getImagesTotalPlan as $keys => $images)
                                 <div class="carousel-item  @if($keys==0)active @endif">
-                                    <img class="img-fluid" src="{{asset('soportes/img_plan/'. $images->name )}}" class="d-block w-100" alt="...">
+                                    <img class="img-fluid" src="{{asset('soportes/img_plan/'. $images->name )}}" class="d-block w-100" alt="{{ $images->name }}">
 
                                 </div>
                                 @empty
@@ -118,7 +118,7 @@
     <div class="description_detail_plans">
         <div class="deatil_description">
             <div>
-                <img src="img/descripcion.png" alt="">
+                <img src="img/descripcion.png" alt="Logo descripcion">
                 <span class="descrip_plan_turi ml-3">Descripción del plan turustico</span>
             </div>
 
