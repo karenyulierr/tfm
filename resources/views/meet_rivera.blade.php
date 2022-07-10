@@ -19,7 +19,7 @@
             <div class="div_1">
 
             </div>
-            <img class="" src="img/conocearivera2.jpg" alt="Imagen de rivera">
+            <img class="" src="img/conocearivera2.JPG" alt="Imagen de rivera">
 
             <div class="div_2">
 
