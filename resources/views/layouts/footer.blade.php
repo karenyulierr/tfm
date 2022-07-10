@@ -7,7 +7,7 @@
                 <span class="turi_footer">turi</span><span class="app_footer">app</span>
             </a> --}}
             {{-- <p class="text-footer"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius corrupti quidem soluta adipisci tempora blanditiis expedita</p> --}}
-            <img src="img/logo.png" alt="">
+            <img src="img/logo.png" alt="Logo TuriApp">
             <br>
             <br>
             <p>Copyright © 2022</p>
@@ -30,7 +30,7 @@
                     <p class=" Siguenos mt-2 mb-2"> Síguenos</p>
                             <div class="row">
                                 <div class="col-1 logo_siguenos">
-                                    <img src="img/facebook.svg" alt="CoolBrand">
+                                    <img src="img/facebook.svg" alt="Icono facebook">
                                 </div>
                                 <div class="col link">
                                     <a href="#">Facebook</a>
@@ -38,7 +38,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-1 logo_siguenos">
-                                    <img src="img/twitter.svg" alt="CoolBrand">
+                                    <img src="img/twitter.svg" alt="Icono Twitter">
                                 </div>
                                 <div class="col link">
                                     <a href="#">Twitter</a>
@@ -46,7 +46,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-1 logo_siguenos">
-                                    <img src="img/instagram.svg" alt="CoolBrand">
+                                    <img src="img/instagram.svg" alt="Icono Instagram">
                                 </div>
                                 <div class="col link">
                                     <a href="#">Instagram</a>

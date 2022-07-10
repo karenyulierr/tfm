@@ -70,7 +70,7 @@
             </div>
         </div>
         <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 img_login">
-            <img class="img-fluid" src="img/img_iniciar_sesion.png" alt="">
+            <img class="img-fluid" src="img/img_iniciar_sesion.png" alt="Iglesia de rivera">
         </div>
     </div>
 </div>

@@ -39,17 +39,17 @@
         <div class="col-6 imagenes">
             <div class="row justify-content-start">
                 <div class="col-4 imagen_uno">
-                    <img src="img/contact2.JPG" class="img-fluid rounded " alt="">
+                    <img src="img/contact2.JPG" class="img-fluid rounded " alt="Imagen cascada rivera">
                 </div>
             </div>
             <div class="row card_2 justify-content-end">
                 <div class="col-8 imagen_dos">
-                    <img src="img/contact1.JPG" class="img-fluid rounded  float-right" alt="">
+                    <img src="img/contact1.JPG" class="img-fluid rounded  float-right" alt="Iglesia de rivera">
                 </div>
             </div>
             <div class="row justify-content-start">
                 <div class="col-5 imagen_tres">
-                    <img src="img/contact3.JPG" class="img-fluid rounded " alt="">
+                    <img src="img/contact3.JPG" class="img-fluid rounded " alt="imagen personaje cultural">
                 </div>
 
             </div>
