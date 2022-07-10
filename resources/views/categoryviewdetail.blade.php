@@ -276,7 +276,7 @@
 
                 <div class="detail_resena">
                     <div class="resena_card row">
-                        @if (count($getRules) > 0)
+                        @if (count($getReviews) > 0)
                             @foreach ($getReviews as $key => $reviews)
                                 <div class=" card col-12 col-sm-5 col-md-5">
                                     <div class="title_card mt-3">
