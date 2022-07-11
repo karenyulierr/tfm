@@ -46,7 +46,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                                 data-toggle="dropdown" aria-expanded="false"
                                 style="color: #fff;  font-weight: 500;   font-size: 20px;" title="Categorias">
-                                Categorias
+                                Sitios turísticos
                             </a>
 
 
