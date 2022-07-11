@@ -25,19 +25,18 @@ class TouristSiteController extends Controller
                 $id = Auth::user()->id;
                 $rol = User::join('model_has_roles', 'model_has_roles.model_id', '=', 'users.id')
                     ->join('roles', 'roles.id', '=', 'model_has_roles.role_id')
-                    ->where('model_has_roles.model_id',$id)->select('roles.name as rol')->first();
+                    ->where('model_has_roles.model_id', $id)->select('roles.name as rol')->first();
                 if ($rol->rol == 'Administrador') {
                     $service = TouristSite::orderBy('name', 'ASC')->get();
                 } else {
-                    $service = TouristSite::where([['user_admin', $id],['state','active']])->orderBy('name', 'ASC')->get();
+                    $service = TouristSite::where([['user_admin', $id], ['state', 'active']])->orderBy('name', 'ASC')->get();
                 }
                 return response()->json($service);
             case 1:
                 $sql = User::get();
-                $categories = Category::where('state','active')->get();
-                return response()->json(array($sql,$categories));
+                $categories = Category::where('state', 'active')->get();
+                return response()->json(array($sql, $categories));
             case 2:
-
         }
     }
 
@@ -60,10 +59,11 @@ class TouristSiteController extends Controller
     public function store(Request $request)
     {
         $categorie = json_decode($_POST['categories']);
-        if($request->band=='create'){
+        if ($request->band == 'create') {
             $images = $request->file('image_main');
             $name_image = $request->nit . '_' . date("Y-m-d") . '.' . $images->getClientOriginalExtension();
-            Storage::disk('img_main')->put($name_image, file_get_contents($images->getRealPath()));
+            $images->move(public_path('soportes/img_main'), $name_image);
+            // Storage::disk('img_main')->put($name_image, file_get_contents($images->getRealPath()));
             $sql = TouristSite::create([
                 'name' => $request->name,
                 'description' => $request->description,
@@ -80,26 +80,27 @@ class TouristSiteController extends Controller
                 'end_time' => $request->end_time,
                 'user_id' => Auth::user()->id
             ]);
-            for ($i = 0; $i < count($categorie); $i++){
+            for ($i = 0; $i < count($categorie); $i++) {
                 CategoryTouristSite::create([
-                    'category_id'=>$categorie[$i]->id,
+                    'category_id' => $categorie[$i]->id,
                     'tourist_site_id' => $sql->id,
                     'user_id' => Auth::user()->id
                 ]);
             }
         } else {
-            $photo = TouristSite::where('main_image',$request->image_main)->exists();
+            $photo = TouristSite::where('main_image', $request->image_main)->exists();
 
-            if($photo==true){
+            if ($photo == true) {
                 $name_image = $request->image_main;
             } else {
-                $photoDel = TouristSite::where('id',$request->id)->first();
-                unlink(config('app.img_main') . $photoDel->main_image);
+                $photoDel = TouristSite::where('id', $request->id)->first();
+                //  unlink(config('app.img_main') . $photoDel->main_image);
                 $images = $request->file('image_main');
                 $name_image = $request->nit . '_' . date("Y-m-d") . '.' . $images->getClientOriginalExtension();
-                Storage::disk('img_main')->put($name_image, file_get_contents($images->getRealPath()));
+                // Storage::disk('img_main')->put($name_image, file_get_contents($images->getRealPath()));
+                $images->move(public_path('soportes/img_main'), $name_image);
             }
-            TouristSite::where('id',$request->id)->update([
+            TouristSite::where('id', $request->id)->update([
                 'name' => $request->name,
                 'description' => $request->description,
                 'nit' => $request->nit,
@@ -115,16 +116,15 @@ class TouristSiteController extends Controller
                 'end_time' => $request->end_time,
                 'user_id' => Auth::user()->id
             ]);
-            CategoryTouristSite::where('tourist_site_id',$request->id)->delete();
-            for ($i = 0; $i < count($categorie); $i++){
+            CategoryTouristSite::where('tourist_site_id', $request->id)->delete();
+            for ($i = 0; $i < count($categorie); $i++) {
                 CategoryTouristSite::create([
-                    'category_id'=>$categorie[$i]->id,
+                    'category_id' => $categorie[$i]->id,
                     'tourist_site_id' => $request->id,
                     'user_id' => Auth::user()->id
                 ]);
             }
         }
-
     }
 
     /**
@@ -136,9 +136,9 @@ class TouristSiteController extends Controller
     public function show($id)
     {
         $extract_id = explode('-', $id);
-        if($extract_id[1] == 'name') {
+        if ($extract_id[1] == 'name') {
             $query = TouristSite::where('name', $extract_id[0])->exists();
-        }else if($extract_id[1] == 'nit') {
+        } else if ($extract_id[1] == 'nit') {
             $query = TouristSite::where('nit', $extract_id[0])->exists();
         }
         return response()->json($query);
@@ -152,11 +152,11 @@ class TouristSiteController extends Controller
      */
     public function edit($id)
     {
-        $site = TouristSite::where('id',$id)->first();
-        $user = User::where('id',$site->user_admin)->first();
-        $categorie = CategoryTouristSite::join('categories', 'categories.id', '=', 'categorie_tourist_sities.category_id')->where('categorie_tourist_sities.tourist_site_id',$id)
+        $site = TouristSite::where('id', $id)->first();
+        $user = User::where('id', $site->user_admin)->first();
+        $categorie = CategoryTouristSite::join('categories', 'categories.id', '=', 'categorie_tourist_sities.category_id')->where('categorie_tourist_sities.tourist_site_id', $id)
             ->select('categories.id', 'categories.name')->get();
-        return response()->json(array($site,$user,$categorie));
+        return response()->json(array($site, $user, $categorie));
     }
 
     /**
@@ -168,7 +168,7 @@ class TouristSiteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        TouristSite::where('id',$request->id)->update([
+        TouristSite::where('id', $request->id)->update([
             'state' => $request->state
         ]);
     }
