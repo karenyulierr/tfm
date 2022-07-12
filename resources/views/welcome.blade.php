@@ -91,7 +91,7 @@
         <div class="textos">
             <p class="lugares">Lugares</p>
             <p class="que_enamoran">Que Enamoran</p>
-            <p class="text">Explora la magia y la belleza que ofrecen cada</p>
+            <p class="text">Explora la magia y la belleza que ofrece cada</p>
             <p class="text">rincón de nuestros paisajes</p>
         </div>
     </header>

@@ -16,7 +16,7 @@
         <div class="col-md-5 mt-5 mb-5">
             <div class="row_item">
                 <div class="col ">
-                    <p class="Servicios mb-1"> Categorias</p>
+                    <span class="Servicios  "> Categorias</span>
                     @foreach($category as $key => $value)
                     <div class="link">
                         <a href="/categoryview?category_id={{ $value->id }}"">{{ $value->name }}</a>
@@ -27,33 +27,33 @@
                     
                 </div>
                 <div class=" col ">
-                    <p class=" Siguenos mt-2 mb-2"> Síguenos</p>
-                            <div class="row">
-                                <div class="col-1 logo_siguenos">
-                                    <img src="img/facebook.svg" alt="Icono facebook">
-                                </div>
-                                <div class="col link">
-                                    <a href="#">Facebook</a>
-                                </div>
+                    <span class=" Siguenos "> Síguenos</span>
+                            <div class=" row">
+                            <div class="logo_siguenos">
+                                <img src="img/facebook.svg" alt="Icono facebook">
+                            </div>&nbsp
+                            <div class="link">
+                                <a href="#">Facebook</a>
                             </div>
-                            <div class="row">
-                                <div class="col-1 logo_siguenos">
-                                    <img src="img/twitter.svg" alt="Icono Twitter">
-                                </div>
-                                <div class="col link">
-                                    <a href="#">Twitter</a>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-1 logo_siguenos">
-                                    <img src="img/instagram.svg" alt="Icono Instagram">
-                                </div>
-                                <div class="col link">
-                                    <a href="#">Instagram</a>
-                                </div>
-                            </div>
+                    </div>
+                    <div class="row">
+                        <div class="logo_siguenos">
+                            <img src="img/twitter.svg" alt="Icono Twitter">
+                        </div>&nbsp
+                        <div class="link">
+                            <a href="#">Twitter</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="logo_siguenos">
+                            <img src="img/instagram.svg" alt="Icono Instagram">
+                        </div>&nbsp
+                        <div class="link">
+                            <a href="#">Instagram</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 </footer>
